@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtnl05qhwp0sr"]
+
+[ext_resource type="PackedScene" uid="uid://16h6c6nglv4e" path="res://scenes/hitbox_component.tscn" id="1_010i3"]
+[ext_resource type="Script" path="res://scripts/slime_bullet.gd" id="1_petxf"]
+[ext_resource type="Texture2D" uid="uid://cvilurf26811x" path="res://assets/sprites/objects/slime_bullet/slime_bullet.png" id="2_7yu2f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wh4m3"]
+radius = 5.0
+
+[node name="SlimeBullet" type="Node2D"]
+script = ExtResource("1_petxf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_7yu2f")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/objects/slime_bullet",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/slime_bullet.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "2cdd230cf98687a5b645ed8def4b7424"
+
+[node name="HitboxComponent" parent="." instance=ExtResource("1_010i3")]
+unique_name_in_owner = true
+damage = 5.0
+max_hit_count = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_wh4m3")

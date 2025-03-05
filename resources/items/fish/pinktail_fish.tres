@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://b0pi8l1ktquiw"]
+
+[ext_resource type="Script" path="res://scripts/inventory_item.gd" id="1_ek6fk"]
+[ext_resource type="Texture2D" uid="uid://cwc5pd8lldb2w" path="res://assets/sprites/items/fish/test_fish.png" id="2_m7sub"]
+
+[resource]
+script = ExtResource("1_ek6fk")
+name = "Pinktail Fish"
+texture = ExtResource("2_m7sub")
+use = "eat"

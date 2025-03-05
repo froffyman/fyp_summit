@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://cfd6dpk5b43ib"]
+
+[ext_resource type="Script" path="res://scripts/inventory_item.gd" id="1_1n6xe"]
+[ext_resource type="Texture2D" uid="uid://bogntph8stped" path="res://assets/sprites/items/swords/daniel_sword.png" id="2_skkpa"]
+
+[resource]
+script = ExtResource("1_1n6xe")
+name = "Daniel's Sword"
+texture = ExtResource("2_skkpa")
+use = "sword"

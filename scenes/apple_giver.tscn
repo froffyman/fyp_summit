@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfvtn70tyi8ou"]
+
+[ext_resource type="Texture2D" uid="uid://dtuuuqt70awe1" path="res://assets/sprites/npcs/Skeleton.png" id="1_lpwbh"]
+[ext_resource type="Script" path="res://scripts/apple_giver.gd" id="1_u70u6"]
+[ext_resource type="Resource" uid="uid://b7nno6lek0qto" path="res://resources/items/apple.tres" id="2_5vct2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8abc"]
+radius = 25.02
+
+[node name="AppleGiver" type="Area2D"]
+script = ExtResource("1_u70u6")
+item = ExtResource("2_5vct2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -13)
+texture = ExtResource("1_lpwbh")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/npcs",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/Avril/Skeleton.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "ac56ffdc430a2dbbfb047ab0830134ce"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_e8abc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

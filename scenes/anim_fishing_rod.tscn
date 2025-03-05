@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxtbrkgdjijtd"]
+
+[ext_resource type="Script" path="res://scripts/anim_fishing_rod.gd" id="1_6sroc"]
+[ext_resource type="Texture2D" uid="uid://djjpx08hgasyk" path="res://assets/sprites/items/fishing_rod/anim_fishing_rod/fishing-rod.png" id="1_l71sd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqqo1"]
+atlas = ExtResource("1_l71sd")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpaep"]
+atlas = ExtResource("1_l71sd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srsgt"]
+atlas = ExtResource("1_l71sd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ry5o"]
+atlas = ExtResource("1_l71sd")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc8ec"]
+atlas = ExtResource("1_l71sd")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4blp3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqqo1")
+}],
+"loop": true,
+"name": &"hold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpaep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srsgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ry5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc8ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqqo1")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 10.0
+}]
+
+[node name="AnimFishingRod" type="AnimatableBody2D"]
+script = ExtResource("1_6sroc")
+
+[node name="Rod" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_4blp3")
+animation = &"swing"
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/items/fishing_rod/anim_fishing_rod",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/fishing-rod.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f80c4a6631b32e238f81285cfe974094"
+
+[connection signal="animation_finished" from="Rod" to="." method="_on_rod_animation_finished"]

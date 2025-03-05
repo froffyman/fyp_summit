@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlrStats" load_steps=2 format=3 uid="uid://dpc6yjkdu4xh0"]
+
+[ext_resource type="Script" path="res://scripts/player_stats.gd" id="1_k6ghd"]
+
+[resource]
+script = ExtResource("1_k6ghd")
+health = 100
+max_health = 100
+fishing_lvl = 0
+fishing_exp = 0

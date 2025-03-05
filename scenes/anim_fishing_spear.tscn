@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://boaflaf5c3yhr"]
+
+[ext_resource type="Script" path="res://scripts/anim_fishing_spear.gd" id="1_e5myo"]
+[ext_resource type="Texture2D" uid="uid://b5nbtanmxkmcp" path="res://assets/sprites/items/fishing_spear/anim_fishing_spear/fishing_spear.png" id="2_onp3a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eptpg"]
+atlas = ExtResource("2_onp3a")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttnne"]
+atlas = ExtResource("2_onp3a")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2iuw"]
+atlas = ExtResource("2_onp3a")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qxsf"]
+atlas = ExtResource("2_onp3a")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt75r"]
+atlas = ExtResource("2_onp3a")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skfj0"]
+atlas = ExtResource("2_onp3a")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xj57o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eptpg")
+}],
+"loop": true,
+"name": &"hold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttnne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2iuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qxsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt75r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skfj0")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 15.0
+}]
+
+[node name="AnimFishingRod" type="AnimatableBody2D"]
+script = ExtResource("1_e5myo")
+
+[node name="Rod" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xj57o")
+animation = &"swing"
+frame = 4
+frame_progress = 1.0
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/items/fishing_spear/anim_fishing_spear",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/fishing_spear.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f849d9869a5f7f93d46a5a677c820edf"
+
+[connection signal="animation_finished" from="Rod" to="." method="_on_rod_animation_finished"]

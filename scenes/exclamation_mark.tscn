@@ -1,0 +1,132 @@
+[gd_scene load_steps=8 format=3 uid="uid://cigrtrv3tpkun"]
+
+[ext_resource type="Texture2D" uid="uid://kv4spqqsxuv4" path="res://assets/sprites/objects/exclamation_mark/exclamation_mark.png" id="1_oiayn"]
+[ext_resource type="Script" path="res://scripts/exclamation_mark.gd" id="1_v24eh"]
+[ext_resource type="AudioStream" uid="uid://de4645vqhaqey" path="res://assets/sfx/bite_notif.wav" id="3_b3x0b"]
+
+[sub_resource type="Animation" id="Animation_hq8hj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../notif:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ubi0q"]
+resource_name = "appear"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../notif:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_llbiw"]
+resource_name = "fade"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i1n38"]
+_data = {
+"RESET": SubResource("Animation_hq8hj"),
+"appear": SubResource("Animation_ubi0q"),
+"fade": SubResource("Animation_llbiw")
+}
+
+[node name="ExclamationMark" type="AnimatableBody2D"]
+script = ExtResource("1_v24eh")
+
+[node name="Mark" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_oiayn")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/objects/exclamation_mark",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/exclamation_mark.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "4f54d1b56213f59ff4b3faeefee587e0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mark"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_i1n38")
+}
+autoplay = "appear"
+
+[node name="notif" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_b3x0b")

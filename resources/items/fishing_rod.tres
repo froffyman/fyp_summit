@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dn7t3nmya8bpn"]
+
+[ext_resource type="Script" path="res://scripts/inventory_item.gd" id="1_jsd7b"]
+[ext_resource type="Texture2D" uid="uid://dq1pm7gpi2dyy" path="res://assets/sprites/items/fishing_rod/static_fishing_rod.png" id="2_n6mlx"]
+
+[resource]
+script = ExtResource("1_jsd7b")
+name = "Fishing Rod"
+texture = ExtResource("2_n6mlx")
+use = "fishing"

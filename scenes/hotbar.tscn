@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvskxee1fmyjg"]
+
+[ext_resource type="Script" path="res://scripts/hotbar.gd" id="1_5qryl"]
+[ext_resource type="Resource" uid="uid://dhgnxvqxesf2i" path="res://resources/hotbar.tres" id="2_5rgew"]
+[ext_resource type="Texture2D" uid="uid://cvvs1pvjjvcr2" path="res://assets/sprites/ui/inventory_background.png" id="2_lypos"]
+[ext_resource type="Script" path="res://scripts/DragTexture.gd" id="3_nfkk6"]
+
+[node name="Hotbar" type="Control"]
+z_index = 5
+custom_minimum_size = Vector2(146, 18)
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+offset_left = -90.0
+offset_top = -20.0
+offset_right = 90.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_5qryl")
+inv = ExtResource("2_5rgew")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lypos")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_left = 80.0
+offset_right = 100.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 9
+
+[node name="DragTexture" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_nfkk6")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

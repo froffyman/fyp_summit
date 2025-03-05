@@ -1,0 +1,170 @@
+[gd_scene load_steps=21 format=3 uid="uid://cjpmi6n5nu52h"]
+
+[ext_resource type="Texture2D" uid="uid://cduvebfygudre" path="res://assets/sprites/enemies/red_slime/red_slime_all.png" id="1_aw2s4"]
+[ext_resource type="Script" path="res://scripts/red_slime.gd" id="1_hr5h7"]
+[ext_resource type="PackedScene" uid="uid://cxplc6vke3v0u" path="res://scenes/hurtbox_component.tscn" id="3_so0nr"]
+[ext_resource type="PackedScene" uid="uid://c1fdy7r8w2ber" path="res://scenes/health_component.tscn" id="4_8xnjv"]
+[ext_resource type="PackedScene" uid="uid://co0mvnuqkcli1" path="res://scenes/player_detect_component.tscn" id="5_tspj0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyycd"]
+atlas = ExtResource("1_aw2s4")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku0gc"]
+atlas = ExtResource("1_aw2s4")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbaxw"]
+atlas = ExtResource("1_aw2s4")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdybj"]
+atlas = ExtResource("1_aw2s4")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcane"]
+atlas = ExtResource("1_aw2s4")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1eam"]
+atlas = ExtResource("1_aw2s4")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pufly"]
+atlas = ExtResource("1_aw2s4")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d5mo"]
+atlas = ExtResource("1_aw2s4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4i4k"]
+atlas = ExtResource("1_aw2s4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0js0b"]
+atlas = ExtResource("1_aw2s4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeecf"]
+atlas = ExtResource("1_aw2s4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30g2m"]
+atlas = ExtResource("1_aw2s4")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rea2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyycd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku0gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbaxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdybj")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcane")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1eam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pufly")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d5mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4i4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0js0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeecf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30g2m")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vow4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2yxub"]
+radius = 100.245
+
+[node name="RedSlime" type="CharacterBody2D"]
+script = ExtResource("1_hr5h7")
+
+[node name="Slime" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_rea2x")
+animation = &"idle"
+autoplay = "idle"
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/enemies/red_slime",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/Slime Test Game/red_slime_all.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "ebc5e47a6b3e61bf3fc5f48ec54d453c"
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("animated_sprite", "health_component") instance=ExtResource("3_so0nr")]
+unique_name_in_owner = true
+animated_sprite = NodePath("../Slime")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_0vow4")
+
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("animated_sprite") instance=ExtResource("4_8xnjv")]
+MAX_HEALTH = 10
+animated_sprite = NodePath("../Slime")
+
+[node name="AtkCooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+
+[node name="PlayerDetectComponent" parent="." instance=ExtResource("5_tspj0")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectComponent"]
+shape = SubResource("CircleShape2D_2yxub")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[connection signal="animation_finished" from="Slime" to="." method="_on_slime_animation_finished"]
+[connection signal="timeout" from="AtkCooldown" to="." method="_on_atk_cooldown_timeout"]

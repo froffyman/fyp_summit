@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://da760o0nb6qh0"]
+
+[ext_resource type="Texture2D" uid="uid://cu3y6fat6ye4f" path="res://assets/sprites/ui/inventory_icon.png" id="1_3c5ux"]
+[ext_resource type="Script" path="res://scripts/inventory_slot.gd" id="1_ewym3"]
+[ext_resource type="FontFile" uid="uid://dnk0wvdr4o8lk" path="res://assets/fonts/PixelOperator8.ttf" id="3_6rfgn"]
+[ext_resource type="Texture2D" uid="uid://bi8ee3m57k8ck" path="res://assets/sprites/ui/inventory_active_outline.png" id="4_5mlib"]
+
+[node name="inventory_slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_ewym3")
+
+[node name="background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_3c5ux")
+centered = false
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/ui",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/inventory_icon.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "9bfbdabc5414f058696a4386d404c28a"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item_display" type="Sprite2D" parent="CenterContainer/Panel"]
+unique_name_in_owner = true
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 16)
+layout_mode = 0
+offset_top = 3.0
+offset_right = 28.0
+offset_bottom = 19.0
+scale = Vector2(0.25, 0.25)
+theme_override_fonts/font = ExtResource("3_6rfgn")
+horizontal_alignment = 2
+
+[node name="active_outline" type="Sprite2D" parent="CenterContainer/Panel"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+texture = ExtResource("4_5mlib")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/ui",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/inventory_active_outline.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "c88faf968abde03afd1d480529e2b217"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="gui_input" from="CenterContainer" to="." method="_on_center_container_gui_input"]

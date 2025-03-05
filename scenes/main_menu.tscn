@@ -1,0 +1,182 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnrb00hjn1eqa"]
+
+[ext_resource type="Texture2D" uid="uid://b4vcis06uhwyj" path="res://assets/sprites/backgrounds/Background_Art.png" id="1_yllj3"]
+[ext_resource type="FontFile" uid="uid://bn0mym6vxgjoe" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_kg5e5"]
+[ext_resource type="Texture2D" uid="uid://cvvs1pvjjvcr2" path="res://assets/sprites/ui/inventory_background.png" id="2_sq6g7"]
+
+[node name="MainMenu" type="Control"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yllj3")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/backgrounds",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/Background_Art.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "d3c093ba28c974c56b54271a839f0466"
+
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.7
+anchor_bottom = 0.8
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="ButtonContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_kg5e5")
+theme_override_font_sizes/font_size = 64
+text = "Summit
+"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="ButtonContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_kg5e5")
+text = "Final Year Project Demo 
+v0.1.2"
+horizontal_alignment = 1
+
+[node name="Play" type="NinePatchRect" parent="ButtonContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+texture = ExtResource("2_sq6g7")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="PlayLabel" type="Label" parent="ButtonContainer/Play"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -32.0
+offset_right = 128.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_kg5e5")
+theme_override_font_sizes/font_size = 64
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="How_To" type="NinePatchRect" parent="ButtonContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+texture = ExtResource("2_sq6g7")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="PlayLabel" type="Label" parent="ButtonContainer/How_To"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -32.0
+offset_right = 128.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_kg5e5")
+theme_override_font_sizes/font_size = 48
+text = "How to Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="NinePatchRect" parent="ButtonContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+texture = ExtResource("2_sq6g7")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="PlayLabel" type="Label" parent="ButtonContainer/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -32.0
+offset_right = 128.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_kg5e5")
+theme_override_font_sizes/font_size = 48
+text = "Quit Game"
+horizontal_alignment = 1
+vertical_alignment = 1

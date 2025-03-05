@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt0sbogjkuwmx"]
+
+[ext_resource type="Texture2D" uid="uid://1yg58a4r46qf" path="res://assets/sprites/objects/tree/tree_shadow.png" id="2_6qkg8"]
+[ext_resource type="Texture2D" uid="uid://c17ikc3r12lcg" path="res://assets/sprites/objects/tree/village_tree.png" id="2_ou07b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f7mea"]
+radius = 9.05539
+
+[node name="Tree" type="StaticBody2D"]
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.584314)
+z_index = -1
+texture_filter = 1
+position = Vector2(1, 7)
+scale = Vector2(2, 2)
+texture = ExtResource("2_6qkg8")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/Slime Test Game/tree_shadow.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "edb291cfed51579d4ddc7300af146803"
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+
+[node name="TreeSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -19)
+texture = ExtResource("2_ou07b")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/objects/tree",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/village_tree.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "367e9342171034658464484bbc80c579"
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"pending_changes": {}
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_f7mea")

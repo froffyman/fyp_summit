@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://s0lvx1uxdl4x"]
+
+[ext_resource type="Texture2D" uid="uid://b2ipjy2vtchy8" path="res://assets/sprites/objects/house/house_shadow.png" id="1_vde6y"]
+[ext_resource type="Texture2D" uid="uid://bbpysu38c0ga2" path="res://assets/sprites/objects/house/house.png" id="2_ed0bp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pujrl"]
+size = Vector2(12, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5as2e"]
+size = Vector2(46, 12)
+
+[node name="House" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+z_index = -5
+texture_filter = 1
+position = Vector2(0, 21)
+texture = ExtResource("1_vde6y")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/objects/house",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/Slime Test Game/house_shadow.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "23b73918048067146f87eb31d4bfc701"
+
+[node name="HouseSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_ed0bp")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/objects/house",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/house.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "47e129a9bcef861e46950d034e5e8293"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(17, 14.5)
+shape = SubResource("RectangleShape2D_pujrl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-17, 14)
+shape = SubResource("RectangleShape2D_pujrl")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_5as2e")
