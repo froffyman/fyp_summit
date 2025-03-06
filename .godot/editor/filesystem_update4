@@ -1,11 +1,12 @@
-res://scenes/red_slime.tscn
+res://scenes/enemy_spawner.tscn
 res://resources/inventory.tres
 res://resources/hotbar.tres
-res://scripts/hitbox_component.gd
-res://scripts/red_slime.gd
-res://scenes/slime_bullet.tscn
-res://scripts/slime_bullet.gd
+res://scripts/enemy_spawner.gd
+res://scripts/spawn_path.gd
+res://scenes/spawn_path.tscn
 res://scenes/forest.tscn
 res://scenes/game.tscn
 res://scenes/player.tscn
+res://scenes/red_slime.tscn
 res://scenes/player_detect_component.tscn
+res://scenes/main_menu.tscn

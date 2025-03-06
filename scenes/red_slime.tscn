@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cjpmi6n5nu52h"]
+[gd_scene load_steps=22 format=3 uid="uid://cjpmi6n5nu52h"]
 
 [ext_resource type="Texture2D" uid="uid://cduvebfygudre" path="res://assets/sprites/enemies/red_slime/red_slime_all.png" id="1_aw2s4"]
 [ext_resource type="Script" path="res://scripts/red_slime.gd" id="1_hr5h7"]
@@ -118,7 +118,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_2yxub"]
 radius = 100.245
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l682b"]
+radius = 8.0
+
 [node name="RedSlime" type="CharacterBody2D"]
+z_index = -1
+y_sort_enabled = true
 script = ExtResource("1_hr5h7")
 
 [node name="Slime" type="AnimatedSprite2D" parent="."]
@@ -165,6 +170,9 @@ unique_name_in_owner = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectComponent"]
 shape = SubResource("CircleShape2D_2yxub")
 debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="Collisions" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l682b")
 
 [connection signal="animation_finished" from="Slime" to="." method="_on_slime_animation_finished"]
 [connection signal="timeout" from="AtkCooldown" to="." method="_on_atk_cooldown_timeout"]

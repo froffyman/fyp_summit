@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b3o8q1nxpahh2" path="res://scenes/gateway.tscn" id="2_n0f1a"]
 [ext_resource type="PackedScene" uid="uid://nx8on6y4nmpg" path="res://scenes/player.tscn" id="3_i2jhd"]
 [ext_resource type="PackedScene" uid="uid://bt0sbogjkuwmx" path="res://scenes/tree.tscn" id="4_u16ea"]
+[ext_resource type="PackedScene" uid="uid://bdpwkjkfdp5kw" path="res://scenes/spawn_path.tscn" id="5_0d1n8"]
 [ext_resource type="PackedScene" uid="uid://ductd5j8mmtmr" path="res://scenes/willow_tree.tscn" id="5_sqy7v"]
 [ext_resource type="PackedScene" uid="uid://ywv6mguwsoe1" path="res://scenes/collectible.tscn" id="8_aryh1"]
 [ext_resource type="Resource" uid="uid://cfd6dpk5b43ib" path="res://resources/items/daniels_sword.tres" id="9_fhnqh"]
@@ -65,12 +66,6 @@ custom_data_layer_0/type = 4
 sources/1 = SubResource("TileSetAtlasSource_31ybh")
 sources/0 = SubResource("TileSetAtlasSource_c8q0x")
 
-[sub_resource type="Curve2D" id="Curve2D_5xo1p"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 144, -81, 0, 0, 0, 0, 144, 81, 0, 0, 0, 0, -144, 81, 0, 0, 0, 0, -144, -81, 0, 0, 0, 0, 144, -81)
-}
-point_count = 5
-
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2vycq"]
 scenes/1/scene = ExtResource("4_u16ea")
 scenes/2/scene = ExtResource("5_sqy7v")
@@ -103,12 +98,7 @@ unique_name_in_owner = true
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
 
-[node name="SpawnPath" type="Path2D" parent="Player"]
-curve = SubResource("Curve2D_5xo1p")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Player/SpawnPath"]
-position = Vector2(144, -81)
-rotation = 1.5708
+[node name="SpawnPath" parent="Player" instance=ExtResource("5_0d1n8")]
 
 [node name="TreeTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xfbxf")

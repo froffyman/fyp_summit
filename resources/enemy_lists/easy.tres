@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="EnemyList" load_steps=2 format=3 uid="uid://ybjbbypth5vr"]
+
+[ext_resource type="Script" path="res://scripts/enemy_list.gd" id="1_mfi6a"]
+
+[resource]
+script = ExtResource("1_mfi6a")
+enemies = ["res://scenes/red_slime.tscn"]

@@ -1,3 +1,4 @@
+EnemyList
 InvItem
 PlrStats
 Inv
