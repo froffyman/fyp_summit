@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SignalManager="*res://scripts/signal_manager.gd"
 NavManager="*res://scripts/NavManager.gd"
 SaveManager="*res://scripts/SaveManager.gd"
+EnemyListManager="*res://scripts/EnemyListManager.gd"
 
 [display]
 

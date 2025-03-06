@@ -1,3 +1,4 @@
+res://scripts
 res://resources/enemy_lists
 res://scenes
 res://assets/sprites/objects/slime_bullet
@@ -6,7 +7,6 @@ res://assets/sprites/enemies/red_slime
 res://
 C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/Slime Test Game
 res://assets/sprites/backgrounds
-res://scripts
 res://resources/items
 res://assets/sprites/npcs/elly_flower
 res://assets/sprites/items/fishing_spear/anim_fishing_spear

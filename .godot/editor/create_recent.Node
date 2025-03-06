@@ -1,6 +1,6 @@
-Node2D
 Area2D
 CollisionShape2D
+Node2D
 Sprite2D
 Timer
 AnimatedSprite2D
@@ -12,4 +12,3 @@ TextureRect
 NinePatchRect
 Button
 VBoxContainer
-CanvasLayer

@@ -1,12 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://utqa3fs85f4l"]
+[gd_scene load_steps=2 format=3 uid="uid://utqa3fs85f4l"]
 
 [ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="1_wx4p8"]
-[ext_resource type="PackedScene" uid="uid://co0mvnuqkcli1" path="res://scenes/player_detect_component.tscn" id="1_ycu1r"]
 
-[node name="EnemySpawner" type="Node2D"]
+[node name="EnemySpawner" type="Area2D"]
 script = ExtResource("1_wx4p8")
 
-[node name="PlayerDetectComponent" parent="." instance=ExtResource("1_ycu1r")]
-unique_name_in_owner = true
-
-[connection signal="player_entered" from="PlayerDetectComponent" to="." method="_on_player_detect_component_player_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

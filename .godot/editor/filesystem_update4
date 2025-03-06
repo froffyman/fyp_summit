@@ -10,3 +10,4 @@ res://scenes/player.tscn
 res://scenes/red_slime.tscn
 res://scenes/player_detect_component.tscn
 res://scenes/main_menu.tscn
+res://scripts/EnemyListManager.gd
