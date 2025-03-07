@@ -77,10 +77,12 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -12)
+platform_floor_layers = 4294967294
 script = ExtResource("1_xksq5")
 inv = ExtResource("2_ri6wc")
 hotbar = ExtResource("3_wslce")
 stats = ExtResource("4_xmb2r")
+metadata/_edit_horizontal_guides_ = [0.0]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

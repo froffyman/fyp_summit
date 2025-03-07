@@ -12,7 +12,7 @@ func play_anim(anim: String):
 
 func take_damage(dmg: float):
 	if health_component:
-		if not cooldown.is_stopped():
+		if cooldown.is_stopped() == true:
 			cooldown.start()
 			health_component.take_damage(dmg)
 	

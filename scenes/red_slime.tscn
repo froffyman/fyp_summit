@@ -124,6 +124,7 @@ radius = 8.0
 [node name="RedSlime" type="CharacterBody2D"]
 z_index = -1
 y_sort_enabled = true
+platform_floor_layers = 4294967294
 script = ExtResource("1_hr5h7")
 
 [node name="Slime" type="AnimatedSprite2D" parent="."]
@@ -156,9 +157,9 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CircleShape2D_0vow4")
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("animated_sprite") instance=ExtResource("4_8xnjv")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("anim_handler") instance=ExtResource("4_8xnjv")]
 MAX_HEALTH = 10
-animated_sprite = NodePath("../Slime")
+anim_handler = NodePath("..")
 
 [node name="AtkCooldown" type="Timer" parent="."]
 unique_name_in_owner = true

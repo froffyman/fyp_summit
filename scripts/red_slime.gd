@@ -45,6 +45,7 @@ func _on_slime_animation_finished():
 		else:
 			play_anim("idle")
 	elif slime.animation == "death":
+		SignalManager.enemy_died.emit()
 		queue_free()
 
 func _on_atk_cooldown_timeout():

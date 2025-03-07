@@ -51,6 +51,7 @@ func _ready():
 	
 	SignalManager.dragged.connect(drag_detect)
 	SignalManager.active_inventory.connect(update_active_inv)
+	SignalManager.enemy_died.connect(exp_gain.bind("combat", randi_range(8, 15)))
 	
 	NavManager.on_trigger_player_spawn.connect(_on_spawn)
 
@@ -110,6 +111,8 @@ func _physics_process(delta):
 				fishing(500, 120, false)
 			"spearfishing":
 				fishing(250, 30, true)
+			"sword":
+				sword()
 	
 	#Fishing Handling
 	if fishing_state:
@@ -164,6 +167,7 @@ func exp_gain(skill: String, amount: int):
 		"combat":
 			stats.combat_exp += amount
 	print("Current Fishing EXP: ", stats.fishing_exp)
+	print("Current Combat EXP: ", stats.combat_exp)
 	
 	var limit = 100 * (1 + 0.2)**stats.fishing_lvl
 	while stats.fishing_exp >= limit:
@@ -245,4 +249,20 @@ func stop_fishing():
 func eat():
 	print("deeelicious!")
 
-#Tool Use: Spearfishing
+#Tool Use: Sword
+func sword():
+	can_use_tool = false
+	hold_display.visible = false
+	
+	var sword_swipe = preload("res://scenes/sword_swipe.tscn").instantiate()
+	anim_sprite.add_child(sword_swipe)
+	sword_swipe.position = hold_display.position
+	
+	if hold_display.flip_h:
+		sword_swipe.flip_h = true
+	
+	sword_swipe.animation_finished.connect(end_sword)
+
+func end_sword():
+	can_use_tool = true
+	hold_display.visible = true

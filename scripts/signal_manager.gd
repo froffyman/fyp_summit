@@ -5,6 +5,8 @@ signal can_drop_item_on_ground
 signal active_inventory
 signal dragged
 
+signal enemy_died
+
 signal set_origin_inventory
 signal set_current_inventory
 var current_inventory: base_inv_ui

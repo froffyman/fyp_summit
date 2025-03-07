@@ -1,8 +1,9 @@
+res://scenes
+res://assets/sprites/items/swords/sword_swipe
+C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG
 res://scripts
 res://resources/enemy_lists
-res://scenes
 res://assets/sprites/objects/slime_bullet
-C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG
 res://assets/sprites/enemies/red_slime
 res://
 C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/Slime Test Game
@@ -19,4 +20,3 @@ res://resources
 res://assets/sprites/ui
 res://assets/sprites/npcs
 C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/Avril
-res://assets/sprites/player

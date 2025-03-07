@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://biam64koxwmvl"]
+
+[ext_resource type="Texture2D" uid="uid://qfa8e4bfldi8" path="res://assets/sprites/items/swords/sword_swipe/sword_swipe.png" id="1_8gfdw"]
+[ext_resource type="Script" path="res://scripts/sword_swipe.gd" id="2_1l7fh"]
+[ext_resource type="PackedScene" uid="uid://16h6c6nglv4e" path="res://scenes/hitbox_component.tscn" id="2_bwrqs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80mrn"]
+atlas = ExtResource("1_8gfdw")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp2fl"]
+atlas = ExtResource("1_8gfdw")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_626j1"]
+atlas = ExtResource("1_8gfdw")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gag3f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80mrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp2fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_626j1")
+}],
+"loop": false,
+"name": &"swipe",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x2ud5"]
+height = 32.0
+
+[node name="SwordSwipe" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_gag3f")
+animation = &"swipe"
+autoplay = "swipe"
+frame = 2
+frame_progress = 1.0
+script = ExtResource("2_1l7fh")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/items/swords/sword_swipe",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/sword_swipe.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "2c3d6cb75419f0e1d36c24e066ba6c0c"
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_bwrqs")]
+unique_name_in_owner = true
+damage = 8.0
+max_hit_count = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape2D_x2ud5")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
