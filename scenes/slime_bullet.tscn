@@ -35,6 +35,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "2cdd230cf98687a5b645ed8def4b7424"
 unique_name_in_owner = true
 damage = 5.0
 max_hit_count = 1
+player_only = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_wh4m3")

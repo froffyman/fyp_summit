@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var player_detection = %PlayerDetectComponent
 @onready var atk_cooldown = %AtkCooldown
 @onready var hurtbox = %HurtboxComponent
+@onready var collisions = %Collisions
 
 var is_player: bool = false
 var player: Player
@@ -58,3 +59,11 @@ func _on_atk_cooldown_timeout():
 			
 			
 			new_bullet.add_to_whitelist(hurtbox)
+
+
+func _on_slime_animation_changed():
+	if slime.animation == "death":
+		#collisions.queue_free()
+		#player_detection.queue_free()
+		atk_cooldown.stop()
+		SPEED = 0

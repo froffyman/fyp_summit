@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://gmp67wok1502"]
+[gd_scene load_steps=32 format=3 uid="uid://gmp67wok1502"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_5o0ee"]
 [ext_resource type="PackedScene" uid="uid://nx8on6y4nmpg" path="res://scenes/player.tscn" id="1_tjkda"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bt0sbogjkuwmx" path="res://scenes/tree.tscn" id="3_lut6c"]
 [ext_resource type="Script" path="res://scripts/player_stats.gd" id="4_78lfe"]
 [ext_resource type="PackedScene" uid="uid://cfvtn70tyi8ou" path="res://scenes/apple_giver.tscn" id="4_bhne1"]
+[ext_resource type="PackedScene" uid="uid://dnkta8e1l1xr2" path="res://scenes/elly_flower.tscn" id="4_u5aty"]
 [ext_resource type="PackedScene" uid="uid://lehlb7pcpx28" path="res://scenes/stick_collectible.tscn" id="5_5sf4b"]
 [ext_resource type="PackedScene" uid="uid://ywv6mguwsoe1" path="res://scenes/collectible.tscn" id="7_lfysa"]
 [ext_resource type="Resource" uid="uid://cu3hi5diihxle" path="res://resources/items/stick.tres" id="8_6for3"]
@@ -146,6 +147,9 @@ position = Vector2(413, 446)
 sprite_frames = SubResource("SpriteFrames_gdpoa")
 animation = &"default"
 autoplay = "default"
+
+[node name="EllyFlower" parent="." instance=ExtResource("4_u5aty")]
+position = Vector2(330, 448)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, -34)

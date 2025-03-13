@@ -13,4 +13,4 @@ func _on_body_entered(body):
 
 func _on_body_exited(body):
 	if body is Player:
-		player_left.emit()
+		player_left.emit(body)

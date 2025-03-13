@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnkta8e1l1xr2"]
+
+[ext_resource type="PackedScene" uid="uid://cy3k4sddhsyho" path="res://scenes/npc_component.tscn" id="1_bguqb"]
+[ext_resource type="PackedScene" uid="uid://co0mvnuqkcli1" path="res://scenes/player_detect_component.tscn" id="1_vat7n"]
+[ext_resource type="Texture2D" uid="uid://nteiunny45f8" path="res://assets/sprites/npcs/elly_flower/Elly_Flower.png" id="2_ok14y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ldhom"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aa4i"]
+atlas = ExtResource("2_ok14y")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apolj"]
+atlas = ExtResource("2_ok14y")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8b0k"]
+atlas = ExtResource("2_ok14y")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggwx5"]
+atlas = ExtResource("2_ok14y")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xha6g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aa4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apolj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8b0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggwx5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7kbwp"]
+radius = 32.0
+
+[node name="EllyFlower" type="Node2D"]
+
+[node name="NPCComponent" parent="." node_paths=PackedStringArray("player_detect") instance=ExtResource("1_bguqb")]
+platform_floor_layers = 4294967294
+player_detect = NodePath("../PlayerDetectComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCComponent"]
+shape = SubResource("CircleShape2D_ldhom")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_xha6g")
+autoplay = "default"
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/npcs/elly_flower",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/Elly_Flower.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "3f03b42ef75ebf7bf8619060823557c6"
+
+[node name="PlayerDetectComponent" parent="." instance=ExtResource("1_vat7n")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectComponent"]
+shape = SubResource("CircleShape2D_7kbwp")

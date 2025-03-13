@@ -173,7 +173,9 @@ shape = SubResource("CircleShape2D_2yxub")
 debug_color = Color(1, 1, 0, 0.419608)
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_l682b")
 
+[connection signal="animation_changed" from="Slime" to="." method="_on_slime_animation_changed"]
 [connection signal="animation_finished" from="Slime" to="." method="_on_slime_animation_finished"]
 [connection signal="timeout" from="AtkCooldown" to="." method="_on_atk_cooldown_timeout"]

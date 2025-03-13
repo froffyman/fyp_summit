@@ -3,6 +3,7 @@ class_name HurtboxComponent
 
 @export var animated_sprite: AnimatedSprite2D
 @export var health_component: HealthComponent
+@export var is_player: bool
 
 @onready var cooldown: Timer = %HitCooldown
 
