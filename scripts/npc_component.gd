@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var label_animator = %LabelAnimator
 
 @export var player_detect: PlayerDetectComponent
+@export var dialogue_component: DialogueComponent
 
 var can_chat: bool = false
 

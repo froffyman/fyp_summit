@@ -1,3 +1,6 @@
+CanvasLayer
+Label
+NinePatchRect
 CollisionShape2D
 HitboxComponent
 AnimatedSprite2D
@@ -8,7 +11,5 @@ Timer
 CharacterBody2D
 PathFollow2D
 Path2D
-Label
 TextureRect
-NinePatchRect
 Button

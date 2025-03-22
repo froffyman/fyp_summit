@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://p5qk087di65r"]
+
+[ext_resource type="Texture2D" uid="uid://cvvs1pvjjvcr2" path="res://assets/sprites/ui/inventory_background.png" id="1_fjb6s"]
+[ext_resource type="Script" path="res://scripts/dialogue_component.gd" id="1_fu1fo"]
+[ext_resource type="FontFile" uid="uid://bn0mym6vxgjoe" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_bwyof"]
+[ext_resource type="FontFile" uid="uid://dnk0wvdr4o8lk" path="res://assets/fonts/PixelOperator8.ttf" id="3_e3ceg"]
+
+[node name="DialogueComponent" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu1fo")
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.8
+anchor_right = 0.8
+anchor_bottom = 0.9
+offset_bottom = 12.0
+grow_horizontal = 2
+texture = ExtResource("1_fjb6s")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Name" type="Label" parent="NinePatchRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.125
+anchor_right = 0.2
+anchor_bottom = 0.2
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_bwyof")
+text = "Name:"
+
+[node name="Content" type="Label" parent="NinePatchRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.05
+anchor_right = 0.995
+anchor_bottom = 0.775
+offset_right = 1.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("3_e3ceg")
+text = "Contents"

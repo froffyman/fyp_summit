@@ -24,7 +24,7 @@ EnemyListManager="*res://scripts/EnemyListManager.gd"
 
 [display]
 
-window/stretch/scale=2.0
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
