@@ -25,6 +25,7 @@ var inv_dragging: Inv
 var item_dragged: bool = false
 
 var can_use_tool: bool = true
+var access_mode: String = "" #Lock to allow only one feature to block movement/tools at once
 
 # Fishing State to determine when player is fishing:
 var fishing_state: bool = false
@@ -52,6 +53,7 @@ func _ready():
 	SignalManager.dragged.connect(drag_detect)
 	SignalManager.active_inventory.connect(update_active_inv)
 	SignalManager.enemy_died.connect(exp_gain.bind("combat", randi_range(8, 15)))
+	SignalManager.chat_update.connect(chat_update)
 	
 	NavManager.on_trigger_player_spawn.connect(_on_spawn)
 
@@ -65,6 +67,19 @@ func update_active_inv(new_inv):
 
 func _process(delta):
 	pass
+
+func chat_update(mode):
+	blocking("chat", mode)
+
+func blocking(access_password: String, mode: bool):
+	if mode:
+		access_mode = access_password
+		can_use_tool = false
+		speed_modifier = 0
+	elif not mode and access_mode == access_password:
+		access_mode = ""
+		can_use_tool = true
+		speed_modifier = 1
 
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -190,8 +205,7 @@ func get_tile_data():
 func fishing(bl: int, to: int, spear: bool):
 	if not fishing_state:
 		
-		speed_modifier = 0
-		can_use_tool = false
+		blocking("tool", true)
 		hold_display.visible = false
 		anim_sprite.play("idle")
 		
@@ -225,15 +239,14 @@ func start_fishing():
 	fishing_state = true
 
 func cancel_fishing(anim_rod):
-	can_use_tool = true
-	speed_modifier = 1
+	blocking("tool", false)
 	#Bring held item back
 	anim_rod.clear_out(hold_display)
 
 func stop_fishing():
 	delete_anim_rod.emit()
 	fishing_state = false
-	speed_modifier = 1
+	blocking("tool", false)
 	
 	if has_bite:
 		has_bite = false

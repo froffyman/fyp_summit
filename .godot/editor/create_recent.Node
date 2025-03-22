@@ -1,3 +1,4 @@
+RichTextLabel
 CanvasLayer
 Label
 NinePatchRect
@@ -12,4 +13,3 @@ CharacterBody2D
 PathFollow2D
 Path2D
 TextureRect
-Button

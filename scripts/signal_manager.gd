@@ -7,6 +7,8 @@ signal dragged
 
 signal enemy_died
 
+signal chat_update
+
 signal set_origin_inventory
 signal set_current_inventory
 var current_inventory: base_inv_ui

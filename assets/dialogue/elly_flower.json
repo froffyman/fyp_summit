@@ -1,12 +1,12 @@
 [
-	{"name": "Elly", "content": "Heya! I'm Elly the flower."},
-	{"name": "Elly", "content": "Well, I wasn't always a flower."},
-	{"name": "Elly", "content": "I used to be a person, like you. With hands. Hands capable of swinging a fishing rod."},
-	{"name": "Elly", "content": "Heck, I used to spend hours every day catching fish..."},
-	{"name": "Elly", "content": "I'd always throw them back, though. Never wanted to eat them. Just had fun catching them."},
-	{"name": "Elly", "content": "Until one day, the Fish King complained to the local witch, who turned me into this."},
-	{"name": "Elly", "content": "And you know, I don't mind it. Being a flower's got its merits too. It's just..."},
-	{"name": "Elly", "content": "I seek vengeance."},
-	{"name": "Elly", "content": "And you've been here listening to me for long enough now..."},
-	{"name": "Elly", "content": "Would you be so kind as to deliver my vengeance for me? I'll even give you my precious fishing rod."}	
+	{"name": "Elly", "type": "dialogue", "content": "Heya! I'm Elly the flower."},
+	{"name": "Elly", "type": "dialogue", "content": "Well, I wasn't always a flower."},
+	{"name": "Elly", "type": "dialogue", "content": "I used to be a person, like you. With hands. Hands capable of swinging a fishing rod."},
+	{"name": "Elly", "type": "dialogue", "content": "Heck, I used to spend hours every day catching fish..."},
+	{"name": "Elly", "type": "dialogue", "content": "I'd always throw them back, though. Never wanted to eat them. Just had fun catching them."},
+	{"name": "Elly", "type": "dialogue", "content": "Until one day, the Fish King complained to the local witch, who turned me into this."},
+	{"name": "Elly", "type": "dialogue", "content": "And you know, I don't mind it. Being a flower's got its merits too. It's just..."},
+	{"name": "Elly", "type": "dialogue", "content": "I seek vengeance."},
+	{"name": "Elly", "type": "dialogue", "content": "And you've been here listening to me for long enough now..."},
+	{"name": "Elly", "type": "quest", "content": "Would you be so kind as to deliver my vengeance for me? I'll even give you my precious fishing rod."}	
 ]
