@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://nx8on6y4nmpg"]
+[gd_scene load_steps=19 format=3 uid="uid://nx8on6y4nmpg"]
 
 [ext_resource type="Texture2D" uid="uid://cx564lit7pp3q" path="res://assets/sprites/player/Avril_Everything.png" id="1_gu4uv"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xksq5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://dpc6yjkdu4xh0" path="res://resources/stats.tres" id="4_xmb2r"]
 [ext_resource type="PackedScene" uid="uid://cvskxee1fmyjg" path="res://scenes/hotbar.tscn" id="5_1toi3"]
 [ext_resource type="PackedScene" uid="uid://ba6bn82kbnf0s" path="res://scenes/drag_texture.tscn" id="8_fi8wq"]
+[ext_resource type="PackedScene" uid="uid://da5ssknkh5urp" path="res://scenes/inv_ui_component.tscn" id="8_nmffa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mfyeh"]
 atlas = ExtResource("1_gu4uv")
@@ -151,6 +152,20 @@ size_flags_vertical = 3
 
 [node name="Hotbar" parent="InventoryLayer" instance=ExtResource("5_1toi3")]
 grow_vertical = 2
+
+[node name="InvUIComponent" parent="InventoryLayer" node_paths=PackedStringArray("drag_texture") instance=ExtResource("8_nmffa")]
+visible = false
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.85
+anchor_right = 0.7
+anchor_bottom = 0.95
+offset_right = 0.0
+offset_bottom = 0.0
+inv_resource = ExtResource("3_wslce")
+columns = 9
+inv_size = 9
+drag_texture = NodePath("../../DragTexture")
 
 [node name="DragTexture" parent="." instance=ExtResource("8_fi8wq")]
 

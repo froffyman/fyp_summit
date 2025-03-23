@@ -14,23 +14,41 @@ signal hold
 
 @export var slots: Array[InvSlot] #Slots where items are stored
 
-func insert(item: InvItem):
-	## First checks if any item slots already contain the desired item.
-	var item_slots = slots.filter(func(slot): return slot.item == item and slot.amount < slot.max)
-	if !item_slots.is_empty():
-		item_slots[0].amount += 1
-	else:
-		## Otherwise, gets the first empty slot and inserts the item
-		var empty_slots = slots.filter(func(slot): return slot.item == null)
-		if !empty_slots.is_empty():
-			empty_slots[0].item = item
-			empty_slots[0].amount = 1
+func insert(item: InvItem, slot = null, amount: int = 1):
+	var leftover: InvSlot = null
+	if slot == null:
+		## First checks if any item slots already contain the desired item.
+		var item_slots = slots.filter(func(slot): return slot.item == item and slot.amount < slot.max)
+		if !item_slots.is_empty():
+			item_slots[0].amount += amount
 		else:
-			var ground_slot: InvSlot = InvSlot.new()
-			ground_slot.item = item
-			ground_slot.amount = 1
-			SignalManager.make_item_collectible.emit(ground_slot)
+			## Otherwise, gets the first empty slot and inserts the item
+			var empty_slots = slots.filter(func(slot): return slot.item == null)
+			if !empty_slots.is_empty():
+				empty_slots[0].item = item
+				empty_slots[0].amount = amount
+			else:
+				var ground_slot: InvSlot = InvSlot.new()
+				ground_slot.item = item
+				ground_slot.amount = amount
+				SignalManager.make_item_collectible.emit(ground_slot)
+	else:
+		if slots[slot].item == item:
+			if slots[slot].item != null:
+				leftover = slots[slot]
+			slots[slot].item = item
+			slots[slot].amount = amount
+		else:
+			if slots[slot].item == item:
+				slots[slot].amount += amount
+				if slots[slot].amount > slots[slot].max:
+					slots[slot].amount == slots[slot].max
+					leftover = InvSlot.new()
+					leftover.item = item
+					leftover.amount = slots[slot].amount - slots[slot].max
+				
 	update.emit()
+	return leftover
 
 func direct_insert(index: int, item: InvSlot):
 	slots[index] = item

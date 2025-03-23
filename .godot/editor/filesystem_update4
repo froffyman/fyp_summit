@@ -19,3 +19,9 @@ res://scripts/hotbar.gd
 res://resources/items/fish/baby_pinktail_fish.tres
 res://resources/items/fish/fish_king.tres
 res://scripts/base_inv_ui.gd
+res://scenes/inv_ui_component.tscn
+res://scripts/inv_ui_component.gd
+res://scripts/drag_manager.gd
+res://scenes/drag_texture.tscn
+res://scripts/inventory.gd
+res://scenes/new_hotbar.tscn

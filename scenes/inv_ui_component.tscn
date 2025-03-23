@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://da5ssknkh5urp"]
+
+[ext_resource type="Script" path="res://scripts/inv_ui_component.gd" id="1_70sdo"]
+[ext_resource type="Texture2D" uid="uid://cvvs1pvjjvcr2" path="res://assets/sprites/ui/inventory_background.png" id="3_y86ub"]
+
+[node name="InvUIComponent" type="Control"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 110.0
+offset_bottom = 12.0
+script = ExtResource("1_70sdo")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_y86ub")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SlotContainer" type="GridContainer" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.05
+anchor_right = 0.99
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

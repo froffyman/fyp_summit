@@ -26,7 +26,7 @@ func _ready():
 func get_active_item():
 	for i in range(len(slots)):
 		if slots[i].active:
-			return i	
+			return i
 	return -1
 
 func update_slots():

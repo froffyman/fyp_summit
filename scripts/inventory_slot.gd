@@ -10,17 +10,25 @@ signal item_empty
 
 signal is_active
 
+signal update_slots
+
 @export var active: bool = false
 var equipped: bool = false
 @export var current_item: InvSlot = InvSlot.new()
 var is_following: bool = false
 
+var inv_resource: Inv
+var inv_index: int
+var drag_texture: Sprite2D
+
 func update(slot: InvSlot):
 	if slot:
-		if !slot.item:
+		if !slot.item or slot.amount <= 0:
 			item_display.visible = false
 			amount_text.visible = false
 			amount_text.text = "0"
+			tooltip_text = ""
+			current_item = null
 		else:
 			current_item = slot
 			item_display.visible = true
@@ -35,10 +43,20 @@ func update(slot: InvSlot):
 	if slot.amount <= 0:
 		clear_item()
 		item_empty.emit()
+		tooltip_text = ""
 
 func clear_item():
+	current_item = null
 	item_display.texture = null
 	amount_text.visible = false
+	tooltip_text = ""
+
+func init(drag: Sprite2D, i: Inv, index: int):
+	drag_texture = drag
+	inv_resource = i
+	inv_index = index
+
+
 
 #func _get_drag_data(at_position):
 	#
@@ -109,3 +127,18 @@ func _on_panel_mouse_entered():
 
 func _on_panel_mouse_exited():
 	_active(false)
+
+
+
+func _on_panel_gui_input(event):
+	if Input.is_action_pressed("click") and current_item != null:
+		print(inv_index)
+		DragManager.item_being_dragged = inv_resource.slots[inv_index]
+		DragManager.dragged_inv_origin = inv_resource
+		DragManager.dragged_slot_index = inv_index
+		clear_item()
+	elif Input.is_action_just_released("click") and DragManager.item_being_dragged != null:
+		print(inv_index)
+		var leftover = inv_resource.insert(DragManager.item_being_dragged.item, inv_index, DragManager.item_being_dragged.amount)
+		if leftover != null:
+			DragManager.dragged_inv_origin.insert(leftover.item, DragManager.dragged_slot_index, leftover.amount)
