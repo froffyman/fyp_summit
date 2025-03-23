@@ -183,7 +183,7 @@ func slot_clicked(event):
 			pass
 	elif Input.is_action_just_pressed("drop_one"):
 		var active_slot: int = inv.get_active_item(slots)
-		var slot: Panel = slots[active_slot]
+		var slot: AspectRatioContainer = slots[active_slot]
 		
 		if active_slot != -1 and inv.slots[active_slot].item != null:
 			var item_for_collectible: InvSlot = InvSlot.new()

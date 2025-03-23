@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://b1rau5s0bu4c1"]
+
+[ext_resource type="Script" path="res://scripts/inventory_item.gd" id="1_ktmpl"]
+[ext_resource type="Texture2D" uid="uid://bbtj8giupkisc" path="res://assets/sprites/items/fish/king_fish.png" id="2_eerlg"]
+
+[resource]
+script = ExtResource("1_ktmpl")
+name = "Fish King"
+texture = ExtResource("2_eerlg")
+use = ""

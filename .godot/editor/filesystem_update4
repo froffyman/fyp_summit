@@ -12,3 +12,10 @@ res://scenes/red_slime.tscn
 res://scripts/signal_manager.gd
 res://assets/dialogue/elly_flower.json
 res://scripts/player.gd
+res://scenes/inventory_slot.tscn
+res://scripts/inventory_slot.gd
+res://scenes/hotbar.tscn
+res://scripts/hotbar.gd
+res://resources/items/fish/baby_pinktail_fish.tres
+res://resources/items/fish/fish_king.tres
+res://scripts/base_inv_ui.gd

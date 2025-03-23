@@ -1,5 +1,6 @@
-res://assets/dialogue
 res://scenes
+res://resources/items/fish
+res://assets/dialogue
 C:/Users/gstar/Documents/Game Dev/RPGCharacterTest/assets/dialogue
 res://assets/sprites/items/swords/sword_swipe
 C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG
@@ -19,4 +20,3 @@ res://assets/sprites/objects/exclamation_mark
 res://assets/sprites/items/fishing_rod/anim_fishing_rod
 res://assets/sprites/items/fishing_rod
 res://resources
-res://assets/sprites/ui

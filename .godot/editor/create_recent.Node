@@ -1,3 +1,5 @@
+AspectRatioContainer
+TextureRect
 RichTextLabel
 CanvasLayer
 Label
@@ -10,6 +12,3 @@ Node2D
 Sprite2D
 Timer
 CharacterBody2D
-PathFollow2D
-Path2D
-TextureRect

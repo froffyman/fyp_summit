@@ -15,6 +15,8 @@ func _ready():
 		var new_slot = preload("res://scenes/inventory_slot.tscn").instantiate()
 		new_slot.gui_input.connect(slot_clicked)
 		new_slot.item_empty.connect(slot_emptied)
+		new_slot.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		new_slot.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		%GridContainer.add_child(new_slot)
 		hotbar_slots.append(new_slot)
 		

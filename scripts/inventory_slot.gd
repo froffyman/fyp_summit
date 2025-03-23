@@ -1,8 +1,8 @@
-extends Panel
+extends AspectRatioContainer
 
-@onready var item_display: Sprite2D = %item_display
+@onready var item_display: TextureRect = %item_display
 @onready var amount_text: Label = %Label
-@onready var active_outline: Sprite2D = %active_outline
+@onready var active_outline: TextureRect = %active_outline
 
 signal item_dragging
 signal item_dropped
@@ -98,4 +98,14 @@ func _on_mouse_entered():
 
 
 func _on_mouse_exited():
+	_active(false)
+
+
+func _on_panel_mouse_entered():
+	_active(true)
+	is_active.emit()
+
+
+
+func _on_panel_mouse_exited():
 	_active(false)
