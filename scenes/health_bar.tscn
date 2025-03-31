@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn0konxajmqlx"]
+
+[ext_resource type="Texture2D" uid="uid://cvvs1pvjjvcr2" path="res://assets/sprites/ui/inventory_background.png" id="1_58mbl"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="2_4y0w3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e826f"]
+bg_color = Color(0, 0.556863, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="HealthBar" type="NinePatchRect"]
+modulate = Color(1, 0.54902, 0.580392, 1)
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.8
+anchor_right = 0.6
+anchor_bottom = 0.825
+texture = ExtResource("1_58mbl")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+script = ExtResource("2_4y0w3")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_e826f")
+value = 100.0
+show_percentage = false

@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnrb00hjn1eqa"]
+[gd_scene load_steps=5 format=3 uid="uid://cnrb00hjn1eqa"]
 
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_1o284"]
 [ext_resource type="Texture2D" uid="uid://b4vcis06uhwyj" path="res://assets/sprites/backgrounds/Background_Art.png" id="1_yllj3"]
 [ext_resource type="FontFile" uid="uid://bn0mym6vxgjoe" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_kg5e5"]
 [ext_resource type="Texture2D" uid="uid://cvvs1pvjjvcr2" path="res://assets/sprites/ui/inventory_background.png" id="2_sq6g7"]
@@ -14,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_1o284")
 
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
@@ -43,7 +45,8 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "d3c093ba28c974c56b54271a839f0466"
 
-[node name="ButtonContainer" type="VBoxContainer" parent="."]
+[node name="MainButtons" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
@@ -57,7 +60,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="ButtonContainer"]
+[node name="Title" type="Label" parent="MainButtons"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
 theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
@@ -69,28 +72,29 @@ text = "Summit
 "
 horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="ButtonContainer"]
+[node name="Subtitle" type="Label" parent="MainButtons"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.301961, 0.0745098, 0.0745098, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_kg5e5")
 text = "Final Year Project Demo 
-v0.1.2"
+v0.1.4"
 horizontal_alignment = 1
 
-[node name="Play" type="NinePatchRect" parent="ButtonContainer"]
+[node name="Play" type="NinePatchRect" parent="MainButtons"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 2
+mouse_filter = 1
 texture = ExtResource("2_sq6g7")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="PlayLabel" type="Label" parent="ButtonContainer/Play"]
+[node name="PlayLabel" type="Label" parent="MainButtons/Play"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -113,7 +117,7 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="How_To" type="NinePatchRect" parent="ButtonContainer"]
+[node name="How_To" type="NinePatchRect" parent="MainButtons"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -124,7 +128,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="PlayLabel" type="Label" parent="ButtonContainer/How_To"]
+[node name="PlayLabel" type="Label" parent="MainButtons/How_To"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -147,7 +151,7 @@ text = "How to Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quit" type="NinePatchRect" parent="ButtonContainer"]
+[node name="Quit" type="NinePatchRect" parent="MainButtons"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_horizontal = 5
@@ -158,7 +162,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="PlayLabel" type="Label" parent="ButtonContainer/Quit"]
+[node name="PlayLabel" type="Label" parent="MainButtons/Quit"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -180,3 +184,98 @@ theme_override_font_sizes/font_size = 48
 text = "Quit Game"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SaveFileContainer" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sq6g7")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SaveFileContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveFileScrollbox" type="VBoxContainer" parent="SaveFileContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="AddFile" type="NinePatchRect" parent="SaveFileContainer/ScrollContainer/SaveFileScrollbox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+texture = ExtResource("2_sq6g7")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="BackLabel" type="Label" parent="SaveFileContainer/ScrollContainer/SaveFileScrollbox/AddFile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_kg5e5")
+text = "+ Add new Save File"
+vertical_alignment = 1
+
+[node name="Back" type="NinePatchRect" parent="SaveFileContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.01
+anchor_right = 0.15
+anchor_bottom = 1.075
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+mouse_filter = 1
+texture = ExtResource("2_sq6g7")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="BackLabel" type="Label" parent="SaveFileContainer/Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_kg5e5")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="MainButtons/Play" to="." method="_on_play_gui_input"]
+[connection signal="gui_input" from="SaveFileContainer/ScrollContainer/SaveFileScrollbox/AddFile" to="." method="_on_add_file_gui_input"]
+[connection signal="gui_input" from="SaveFileContainer/Back" to="." method="_on_back_gui_input"]

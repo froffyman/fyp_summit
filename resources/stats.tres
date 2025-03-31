@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_k6ghd")
-health = 100
-max_health = 100
-fishing_lvl = 0
+fishing_lvl = 1
 fishing_exp = 0
+combat_lvl = 1
+combat_exp = 0

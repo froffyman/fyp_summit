@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://ktn1lcyke6ok"]
+
+[ext_resource type="Texture2D" uid="uid://d2qtmuu1kh08h" path="res://assets/sprites/player/player_death_anim.png" id="1_q5jk6"]
+[ext_resource type="Script" path="res://scripts/player_death.gd" id="2_i77sn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v37ix"]
+atlas = ExtResource("1_q5jk6")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkj4h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v37ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v37ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v37ix")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}]
+
+[node name="PlayerDeath" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xkj4h")
+animation = &"death"
+autoplay = "death"
+script = ExtResource("2_i77sn")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/player",
+"o_name": "player_death_anim",
+"only_visible": false,
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/player_death_anim.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "5f5677b1ae289128c3f5a1205bf0ee21"
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

@@ -109,11 +109,9 @@ sources/0 = SubResource("TileSetAtlasSource_b5yuj")
 
 [sub_resource type="Resource" id="Resource_oeuln"]
 script = ExtResource("4_78lfe")
-health = 100
-max_health = 100
 fishing_lvl = 0
 fishing_exp = 0
-combat_level = 0
+combat_lvl = 0
 combat_exp = 0
 
 [sub_resource type="Resource" id="Resource_bmu62"]

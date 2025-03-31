@@ -7,6 +7,9 @@ var speed_modifier = 1 #Changed to speed the player up/slow them down when neede
 @onready var anim_sprite = $AnimatedSprite2D
 @onready var hold_display = %HeldItem
 @onready var tile_marker = %tileMarker
+@onready var hurtbox: HurtboxComponent = %HurtboxComponent
+@onready var health: HealthComponent = %HealthComponent
+@onready var ui_layer = %InventoryLayer
 
 @export var inv: Inv
 @export var hotbar: Inv
@@ -20,6 +23,8 @@ var dragged_slot_origin: int
 var item_being_dragged: InvSlot
 
 @export var stats: PlrStats
+@onready var stat_menu = %StatMenu
+signal stat_update
 
 var inv_dragging: Inv
 var item_dragged: bool = false
@@ -49,6 +54,8 @@ func _ready():
 	
 	inv.update.emit()
 	hotbar.update.emit()
+
+	health.dead.connect(kill_player)
 	
 	SignalManager.dragged.connect(drag_detect)
 	SignalManager.active_inventory.connect(update_active_inv)
@@ -56,6 +63,8 @@ func _ready():
 	SignalManager.chat_update.connect(chat_update)
 	
 	NavManager.on_trigger_player_spawn.connect(_on_spawn)
+	
+	stat_menu.update(stats.fishing_lvl, stats.combat_lvl, stats.fishing_exp, stats.combat_exp)
 
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
@@ -114,6 +123,10 @@ func _physics_process(delta):
 	else:
 		if speed_modifier > 0:
 			anim_sprite.play("walk")
+	
+	#Toggle Stat Menu
+	if Input.is_action_just_released("tab"):
+		stat_menu.visible = not stat_menu.visible
 	
 	if Input.is_action_just_released("click") and item_dragged:
 		item_dragged = false
@@ -174,22 +187,22 @@ func hold_item(item: InvSlot):
 		hold_display.texture = null
 
 #Stats
-func exp_gain(skill: String, amount: int):
-	var stat_to_change: String
-	match skill:
+func exp_gain(stat: String, amount: int):
+	match stat:
 		"fishing":
 			stats.fishing_exp += amount
+			while stats.fishing_exp >= stats.fishing_lvl*100:
+				stats.fishing_exp -= (stats.fishing_lvl*100)
+				stats.fishing_lvl +=1
+				
 		"combat":
 			stats.combat_exp += amount
+			while stats.combat_exp >= stats.combat_lvl*100:
+				stats.combat_exp -= (stats.combat_exp*100)
+				stats.combat_lvl +=1
 	print("Current Fishing EXP: ", stats.fishing_exp)
 	print("Current Combat EXP: ", stats.combat_exp)
-	
-	var limit = 100 * (1 + 0.2)**stats.fishing_lvl
-	while stats.fishing_exp >= limit:
-		stats.fishing_exp -= limit
-		stats.fishing_lvl += 1
-		print("Level up! You are now level ", stats.fishing_lvl)
-		
+	stat_menu.update(stats.fishing_lvl, stats.combat_lvl, stats.fishing_exp, stats.combat_exp)
 
 
 # Tile Data for Marker
@@ -269,6 +282,7 @@ func sword():
 	
 	var sword_swipe = preload("res://scenes/sword_swipe.tscn").instantiate()
 	anim_sprite.add_child(sword_swipe)
+	sword_swipe.add_to_whitelist(hurtbox)
 	sword_swipe.position = hold_display.position
 	
 	if hold_display.flip_h:
@@ -279,3 +293,9 @@ func sword():
 func end_sword():
 	can_use_tool = true
 	hold_display.visible = true
+
+#Death Handler
+func kill_player():
+	blocking("death", true)
+	var death_menu = preload("res://scenes/death_menu.tscn").instantiate()
+	ui_layer.add_child(death_menu)

@@ -1,10 +1,13 @@
 extends Node2D
 class_name HealthComponent
 
+signal hurt
+signal dead
+
 @export var MAX_HEALTH: int
 @export var anim_handler: CharacterBody2D
 
-var current_health: float 
+var current_health: float
 
 func play_anim(anim: String):
 	if anim_handler:
@@ -18,6 +21,8 @@ func take_damage(dmg: float):
 	current_health -= dmg
 	if (current_health) <= 0:
 		play_anim("death")
+		dead.emit()
 	else:
 		play_anim("hurt")
+		hurt.emit()
 	

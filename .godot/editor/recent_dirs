@@ -1,10 +1,12 @@
 res://scenes
+res://assets/sprites/player
+C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG
+C:/Users/gstar/Documents/Game Dev/RPGCharacterTest/assets/dialogue
+res://resources
 res://scripts
 res://resources/items/fish
 res://assets/dialogue
-C:/Users/gstar/Documents/Game Dev/RPGCharacterTest/assets/dialogue
 res://assets/sprites/items/swords/sword_swipe
-C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG
 res://resources/enemy_lists
 res://assets/sprites/objects/slime_bullet
 res://assets/sprites/enemies/red_slime
@@ -18,5 +20,3 @@ res://assets/sprites/objects/tree
 res://assets/sprites/objects/house
 res://assets/sprites/objects/exclamation_mark
 res://assets/sprites/items/fishing_rod/anim_fishing_rod
-res://assets/sprites/items/fishing_rod
-res://resources
