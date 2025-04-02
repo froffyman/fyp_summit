@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://lqv5e136tayp"]
+[gd_scene load_steps=19 format=3 uid="uid://lqv5e136tayp"]
 
 [ext_resource type="Texture2D" uid="uid://b6kpn3qdayjrf" path="res://assets/sprites/backgrounds/tilemap_water_grass.png" id="1_ckx3u"]
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_jfjeh"]
@@ -9,10 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bt0sbogjkuwmx" path="res://scenes/tree.tscn" id="4_u16ea"]
 [ext_resource type="PackedScene" uid="uid://bdpwkjkfdp5kw" path="res://scenes/spawn_path.tscn" id="5_0d1n8"]
 [ext_resource type="PackedScene" uid="uid://ductd5j8mmtmr" path="res://scenes/willow_tree.tscn" id="5_sqy7v"]
-[ext_resource type="PackedScene" uid="uid://ywv6mguwsoe1" path="res://scenes/collectible.tscn" id="8_aryh1"]
-[ext_resource type="Resource" uid="uid://cfd6dpk5b43ib" path="res://resources/items/daniels_sword.tres" id="9_fhnqh"]
-[ext_resource type="Script" path="res://scripts/res_inventory_slot.gd" id="10_b1ro8"]
 [ext_resource type="PackedScene" uid="uid://cjpmi6n5nu52h" path="res://scenes/red_slime.tscn" id="11_r3aoj"]
+[ext_resource type="PackedScene" uid="uid://d0ucpcgudli5s" path="res://scenes/daniel.tscn" id="14_djchj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8q0x"]
 texture = ExtResource("2_bil54")
@@ -81,13 +79,7 @@ sources/0 = SubResource("TileSetScenesCollectionSource_2vycq")
 resource_local_to_scene = true
 size = Vector2(10.9678, 48.0064)
 
-[sub_resource type="Resource" id="Resource_x7b3g"]
-script = ExtResource("10_b1ro8")
-item = ExtResource("9_fhnqh")
-amount = 1
-max = 99
-
-[node name="Forest" type="Node2D"]
+[node name="Forest" type="Node2D" groups=["Locations"]]
 script = ExtResource("1_jfjeh")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -137,11 +129,10 @@ shape = SubResource("RectangleShape2D_ykd47")
 [node name="SpawnPoint" parent="Gates/VillageGate" index="1"]
 position = Vector2(85.9981, -380.233)
 
-[node name="Collectible" parent="." instance=ExtResource("8_aryh1")]
-position = Vector2(730, 160)
-item = SubResource("Resource_x7b3g")
-
 [node name="RedSlime" parent="." instance=ExtResource("11_r3aoj")]
 position = Vector2(470, 371)
+
+[node name="Daniel" parent="." instance=ExtResource("14_djchj")]
+position = Vector2(793, 217)
 
 [editable path="Gates/VillageGate"]

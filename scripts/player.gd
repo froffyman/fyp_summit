@@ -65,6 +65,11 @@ func _ready():
 	NavManager.on_trigger_player_spawn.connect(_on_spawn)
 	
 	stat_menu.update(stats.fishing_lvl, stats.combat_lvl, stats.fishing_exp, stats.combat_exp)
+	
+	save_health()
+	health.healed.connect(save_health)
+	health.hurt.connect(save_health)
+	health.dead.connect(save_health)
 
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
@@ -198,12 +203,15 @@ func exp_gain(stat: String, amount: int):
 		"combat":
 			stats.combat_exp += amount
 			while stats.combat_exp >= stats.combat_lvl*100:
-				stats.combat_exp -= (stats.combat_exp*100)
+				stats.combat_exp -= (stats.combat_lvl*100)
 				stats.combat_lvl +=1
 	print("Current Fishing EXP: ", stats.fishing_exp)
 	print("Current Combat EXP: ", stats.combat_exp)
 	stat_menu.update(stats.fishing_lvl, stats.combat_lvl, stats.fishing_exp, stats.combat_exp)
 
+func save_health():
+	stats.current_health = health.current_health
+	stats.max_health = health.MAX_HEALTH
 
 # Tile Data for Marker
 func get_tile_data():
@@ -273,7 +281,8 @@ func stop_fishing():
 		exp_gain("fishing", randi_range(5, 10))
 
 func eat():
-	print("deeelicious!")
+	health.heal(25)
+	#Delete item
 
 #Tool Use: Sword
 func sword():
@@ -299,3 +308,4 @@ func kill_player():
 	blocking("death", true)
 	var death_menu = preload("res://scenes/death_menu.tscn").instantiate()
 	ui_layer.add_child(death_menu)
+	health.heal(health.MAX_HEALTH) #Preventing the player from spawning in at 0

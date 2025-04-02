@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0ucpcgudli5s"]
+
+[ext_resource type="Script" path="res://scripts/daniel.gd" id="1_6v0ao"]
+[ext_resource type="PackedScene" uid="uid://cy3k4sddhsyho" path="res://scenes/npc_component.tscn" id="1_vyq2g"]
+[ext_resource type="Texture2D" uid="uid://dvu8j16yshqpg" path="res://assets/sprites/npcs/daniel/daniel.png" id="2_l10cw"]
+[ext_resource type="PackedScene" uid="uid://co0mvnuqkcli1" path="res://scenes/player_detect_component.tscn" id="3_pa3sb"]
+[ext_resource type="PackedScene" uid="uid://p5qk087di65r" path="res://scenes/dialogue_component.tscn" id="4_req4k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q2jbl"]
+radius = 7.0
+height = 26.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8oxjs"]
+radius = 32.0
+
+[node name="Daniel" type="Node2D"]
+script = ExtResource("1_6v0ao")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_l10cw")
+flip_h = true
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/sprites/npcs/daniel",
+"o_name": "daniel",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/Weapon_Master.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "c432925caae34bdff436cb3e309cc293"
+
+[node name="NPCComponent" parent="." node_paths=PackedStringArray("player_detect", "dialogue_component") instance=ExtResource("1_vyq2g")]
+player_detect = NodePath("../PlayerDetectComponent")
+dialogue_component = NodePath("../DialogueLayer/DialogueComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCComponent"]
+shape = SubResource("CapsuleShape2D_q2jbl")
+
+[node name="PlayerDetectComponent" parent="." instance=ExtResource("3_pa3sb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectComponent"]
+shape = SubResource("CircleShape2D_8oxjs")
+debug_color = Color(0.521569, 0.572549, 0, 0.419608)
+
+[node name="DialogueLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogueComponent" parent="DialogueLayer" instance=ExtResource("4_req4k")]
+unique_name_in_owner = true
+dialogue_data = "res://assets/dialogue/daniel.json"

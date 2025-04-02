@@ -29,7 +29,7 @@ func player_found(plr: Player):
 	player = plr
 	atk_cooldown.start()
 
-func player_lost():
+func player_lost(_plr: Player):
 	is_player = false
 	player = null
 	play_anim("idle")

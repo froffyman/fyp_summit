@@ -10,6 +10,7 @@ var line_length = 0
 @onready var box_name = %Name
 @onready var content = %Content
 
+signal custom_sig
 signal dialogue_ended
 
 # Called when the node enters the scene tree for the first time.
@@ -43,7 +44,10 @@ func next_line():
 			content.text = dialogue[current_line]["content"]
 			line_length = len(dialogue[current_line]["content"])
 			content.visible_characters = 0
-		else:
+			
+			if dialogue[current_line].has("signal"):
+				custom_sig.emit(dialogue[current_line]["signal"])
+		else: #Skip to the end of a line
 			content.visible_characters = line_length
 	else:
 		dialogue_end()

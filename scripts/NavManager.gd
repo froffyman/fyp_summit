@@ -20,8 +20,11 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = home
 		
 	if scene_to_load != null:
-		spawn_door_tag = destination_tag
-		get_tree().change_scene_to_packed(scene_to_load)
+		call_deferred("scene_switch", destination_tag, scene_to_load)
+
+func scene_switch(destination_tag, scene_to_load):
+	spawn_door_tag = destination_tag
+	get_tree().change_scene_to_packed(scene_to_load)
 
 func trigger_player_spawn(position: Vector2, direction: String):
 	on_trigger_player_spawn.emit(position, direction)
