@@ -3,8 +3,8 @@ extends Resource
 class_name PlrStats
 
 #Health
-@export var max_health: float
-@export var current_health: float
+@export var max_health: float = 100
+@export var current_health: float = 100
 
 #Skills
 @export var fishing_lvl: int

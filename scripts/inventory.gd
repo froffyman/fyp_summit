@@ -20,14 +20,17 @@ func insert(item: InvItem, slot = null, amount: int = 1):
 		## First checks if any item slots already contain the desired item.
 		var item_slots = slots.filter(func(slot): return slot.item == item and slot.amount < slot.max)
 		if !item_slots.is_empty():
+			print("Space found in existing slot!")
 			item_slots[0].amount += amount
 		else:
 			## Otherwise, gets the first empty slot and inserts the item
 			var empty_slots = slots.filter(func(slot): return slot.item == null)
 			if !empty_slots.is_empty():
+				print("Empty slot found!")
 				empty_slots[0].item = item
 				empty_slots[0].amount = amount
 			else:
+				print("No space found.")
 				var ground_slot: InvSlot = InvSlot.new()
 				ground_slot.item = item
 				ground_slot.amount = amount

@@ -79,7 +79,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_kg5e5")
 text = "Final Year Project Demo 
-v0.1.4"
+v0.1.6a"
 horizontal_alignment = 1
 
 [node name="Play" type="NinePatchRect" parent="MainButtons"]
@@ -240,7 +240,7 @@ theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
 theme_override_fonts/font = ExtResource("2_kg5e5")
-text = "+ Add new Save File"
+text = "+ New Save File"
 vertical_alignment = 1
 
 [node name="Back" type="NinePatchRect" parent="SaveFileContainer"]

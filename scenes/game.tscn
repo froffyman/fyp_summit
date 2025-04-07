@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://gmp67wok1502"]
+[gd_scene load_steps=30 format=3 uid="uid://gmp67wok1502"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_5o0ee"]
 [ext_resource type="PackedScene" uid="uid://nx8on6y4nmpg" path="res://scenes/player.tscn" id="1_tjkda"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://crtuttcutvkik" path="res://assets/sprites/backgrounds/grass.png" id="2_kcpq3"]
 [ext_resource type="Texture2D" uid="uid://cx1bv2xujbd0b" path="res://assets/sprites/backgrounds/house_tileset.png" id="2_nyld8"]
 [ext_resource type="PackedScene" uid="uid://bt0sbogjkuwmx" path="res://scenes/tree.tscn" id="3_lut6c"]
-[ext_resource type="Script" path="res://scripts/player_stats.gd" id="4_78lfe"]
 [ext_resource type="PackedScene" uid="uid://cfvtn70tyi8ou" path="res://scenes/apple_giver.tscn" id="4_bhne1"]
 [ext_resource type="PackedScene" uid="uid://dnkta8e1l1xr2" path="res://scenes/elly_flower.tscn" id="4_u5aty"]
 [ext_resource type="PackedScene" uid="uid://lehlb7pcpx28" path="res://scenes/stick_collectible.tscn" id="5_5sf4b"]
@@ -107,15 +106,6 @@ custom_data_layer_0/type = 4
 sources/1 = SubResource("TileSetAtlasSource_bcq6b")
 sources/0 = SubResource("TileSetAtlasSource_b5yuj")
 
-[sub_resource type="Resource" id="Resource_oeuln"]
-script = ExtResource("4_78lfe")
-max_health = 0.0
-current_health = 0.0
-fishing_lvl = 0
-fishing_exp = 0
-combat_lvl = 0
-combat_exp = 0
-
 [sub_resource type="Resource" id="Resource_bmu62"]
 script = ExtResource("9_il76q")
 item = ExtResource("12_gsh8h")
@@ -197,7 +187,6 @@ position = Vector2(526, 425)
 unique_name_in_owner = true
 y_sort_enabled = true
 position = Vector2(549, 332)
-stats = SubResource("Resource_oeuln")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)

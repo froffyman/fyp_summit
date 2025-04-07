@@ -1,7 +1,7 @@
 extends Control
 class_name InvUIComponent
 
-@export var inv_resource: Inv
+var inv_resource: Inv
 @export var columns: int
 @export var inv_size: int
 @export var drag_texture: Sprite2D
@@ -12,6 +12,9 @@ class_name InvUIComponent
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	slot_container.columns = columns
+
+func set_inv(res: Inv):
+	inv_resource = res
 	inv_resource.update.connect(update_slots)
 	for i in inv_size:
 		var new_slot = preload("res://scenes/inventory_slot.tscn").instantiate()

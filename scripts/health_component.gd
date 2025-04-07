@@ -8,7 +8,7 @@ signal dead
 @export var MAX_HEALTH: int
 @export var anim_handler: CharacterBody2D
 
-var current_health: float
+var current_health: float = 0
 
 func play_anim(anim: String):
 	if anim_handler:
@@ -16,7 +16,8 @@ func play_anim(anim: String):
 			anim_handler.play_anim(anim)
 
 func _ready():
-	current_health = MAX_HEALTH
+	if current_health == 0:
+		current_health = MAX_HEALTH
 
 func heal(amount: float):
 	if current_health < MAX_HEALTH:

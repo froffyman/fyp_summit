@@ -10,4 +10,5 @@ class_name Gate
 
 func _on_body_entered(body):
 	if body is Player:
+		body.save_stats()
 		NavManager.go_to_level(destination_area_tag, destination_door_tag)

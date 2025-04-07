@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmfbvfgsw6q4m"]
+[gd_scene load_steps=5 format=3 uid="uid://dmfbvfgsw6q4m"]
 
 [ext_resource type="Texture2D" uid="uid://cvvs1pvjjvcr2" path="res://assets/sprites/ui/inventory_background.png" id="1_y16ck"]
 [ext_resource type="FontFile" uid="uid://bn0mym6vxgjoe" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_i5foo"]
+[ext_resource type="Script" path="res://scripts/save_file_container.gd" id="2_v4yma"]
 [ext_resource type="Texture2D" uid="uid://c3xmy3y7mgjpl" path="res://assets/sprites/player/Avril2.png" id="2_xudy5"]
 
 [node name="AddFile" type="NinePatchRect"]
@@ -14,6 +15,7 @@ patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
+script = ExtResource("2_v4yma")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -29,6 +31,7 @@ expand_mode = 3
 stretch_mode = 4
 
 [node name="FileNum" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
 theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)

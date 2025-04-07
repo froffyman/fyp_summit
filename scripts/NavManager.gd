@@ -13,7 +13,11 @@ func go_to_level(level_tag, destination_tag):
 	
 	match level_tag:
 		"village":
-			scene_to_load = village
+			var loaded = SaveManager.load_village() as PackedScene
+			if loaded == null:
+				scene_to_load = village
+			else:
+				scene_to_load = loaded
 		"forest":
 			scene_to_load = forest
 		"home":

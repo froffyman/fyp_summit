@@ -11,8 +11,10 @@ var speed_modifier = 1 #Changed to speed the player up/slow them down when neede
 @onready var health: HealthComponent = %HealthComponent
 @onready var ui_layer = %InventoryLayer
 
-@export var inv: Inv
-@export var hotbar: Inv
+@onready var hotbar_ui = %InvUIComponent
+
+var inv: Inv
+var hotbar: Inv
 
 @export var held_item: InvSlot
 
@@ -22,7 +24,7 @@ var active_inv: Inv
 var dragged_slot_origin: int
 var item_being_dragged: InvSlot
 
-@export var stats: PlrStats
+var stats: PlrStats
 @onready var stat_menu = %StatMenu
 signal stat_update
 
@@ -44,10 +46,21 @@ var timeout_limit: int = 120
 var bite_threshold: int = -1
 var bite_counter: int = 0
 var has_bite: bool = false
-var bite_timeout: int = timeout_limit
+var bite_timeout: int = 0
 signal bite_timed_out
 
 func _ready():
+	var file_data = SaveManager.load_plr()
+	stats = file_data["stats"]
+	inv = file_data["backpack"]
+	hotbar = file_data["hotbar"]
+
+	hotbar_ui.set_inv(hotbar)
+
+	health.MAX_HEALTH = stats.max_health
+	health.current_health = stats.current_health
+	health.healed.emit()
+	
 	active_inv = inv
 	inv.dragged.connect(drag_detect)
 	hotbar.hold.connect(hold_item)
@@ -151,7 +164,7 @@ func _physics_process(delta):
 	if fishing_state:
 		if not has_bite:
 			if bite_threshold == -1:
-				bite_threshold = randi_range(0, bite_limit)
+				bite_threshold = randi_range(0, (bite_limit - (stats.fishing_lvl*30)))
 			if bite_counter < bite_threshold:
 				bite_counter += 1
 			else:
@@ -164,11 +177,11 @@ func _physics_process(delta):
 				bite_counter = 0
 				has_bite = true
 		else:
-			if bite_timeout >= 0:
-				bite_timeout -= 1
+			if bite_timeout < (timeout_limit + (stats.fishing_lvl*20)):
+				bite_timeout += 1
 			else:
 				bite_timed_out.emit()
-				bite_timeout = timeout_limit
+				bite_timeout = 0
 				has_bite = false
 	
 	move_and_slide()
@@ -213,6 +226,9 @@ func save_health():
 	stats.current_health = health.current_health
 	stats.max_health = health.MAX_HEALTH
 
+func save_stats():
+	SaveManager.save(stats, inv, hotbar)
+
 # Tile Data for Marker
 func get_tile_data():
 	var tileMap = get_parent().find_child("TileMap") #caution.
@@ -246,7 +262,7 @@ func fishing(bl: int, to: int, spear: bool):
 		
 		if get_tile_data() == "Water":
 			bite_limit = bl
-			bite_timeout = to
+			timeout_limit = to
 			anim_rod.done_swinging.connect(start_fishing)
 		else:
 			anim_rod.done_swinging.connect(cancel_fishing.bind(anim_rod))
@@ -271,7 +287,7 @@ func stop_fishing():
 	
 	if has_bite:
 		has_bite = false
-		bite_timeout = 120
+		bite_timeout = 0
 		
 		var caught_fish: InvSlot = InvSlot.new()
 		caught_fish.item = preload("res://resources/items/fish/pinktail_fish.tres")

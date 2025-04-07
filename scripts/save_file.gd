@@ -7,3 +7,4 @@ class_name save_file
 
 @export var village: Resource
 @export var forest: Resource
+@export var home: Resource
