@@ -67,6 +67,13 @@ func get_active_item(slots):
 func hold_item(item: InvSlot):
 	hold.emit(item)
 
+func consume(index: int):
+	slots[index].amount -= 1
+	if slots[index].amount <= 0:
+		slots[index] = InvSlot.new()
+		hold.emit(InvSlot.new())
+	update.emit()
+
 func hotbar_insert(item: InvItem): 
 	#Instead of dropping an item on the ground, this function will return the item so the player
 	#can attempt to place it in their backpack.

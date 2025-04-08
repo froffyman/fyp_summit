@@ -17,11 +17,11 @@ func save(stats=null, backpack=null, hotbar=null, village=null, forest=null, hom
 	if hotbar != null:
 		data.hotbar = hotbar
 	if village != null:
-		data.village = PackedScene.new().pack(village)
+		data.village = village
 	if forest != null:
-		data.forest = PackedScene.new().pack(forest)
+		data.forest = forest #PackedScene.new().pack(forest)
 	if home != null:
-		data.home = PackedScene.new().pack(home)
+		data.home = home #PackedScene.new().pack(home)
 
 	ResourceSaver.save(data, str("user://file", file_id, ".tres"))
 func load_plr():

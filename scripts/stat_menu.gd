@@ -9,7 +9,6 @@ extends Control
 @onready var cmbt_exp = %CombatEXP
 
 func update(fl, cl, fe, ce):
-	print("Update Detected!")
 	fish_lvl.text = str(fl)
 	cmbt_lvl.text = str(cl)
 	

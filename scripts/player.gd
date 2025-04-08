@@ -16,7 +16,9 @@ var speed_modifier = 1 #Changed to speed the player up/slow them down when neede
 var inv: Inv
 var hotbar: Inv
 
+var slot_inputs = ["slot_1", "slot_2", "slot_3", "slot_4", "slot_5", "slot_6", "slot_7", "slot_8", "slot_9"]
 @export var held_item: InvSlot
+var held_item_index: int = -1
 
 var active_inv: Inv
 
@@ -93,7 +95,12 @@ func update_active_inv(new_inv):
 	active_inv = new_inv
 
 func _process(delta):
-	pass
+	for i in range(len(slot_inputs)):
+		if Input.is_action_just_pressed(slot_inputs[i]):
+			if access_mode == "":
+				hotbar_ui.show_equipped(i)
+				hotbar.hold_item(hotbar.slots[i])
+				held_item_index = i
 
 func chat_update(mode):
 	blocking("chat", mode)
@@ -102,10 +109,12 @@ func blocking(access_password: String, mode: bool):
 	if mode:
 		access_mode = access_password
 		can_use_tool = false
+		hotbar_ui.equip_block_toggle(true)
 		speed_modifier = 0
 	elif not mode and access_mode == access_password:
 		access_mode = ""
 		can_use_tool = true
+		hotbar_ui.equip_block_toggle(false)
 		speed_modifier = 1
 
 func _physics_process(delta):
@@ -297,8 +306,9 @@ func stop_fishing():
 		exp_gain("fishing", randi_range(5, 10))
 
 func eat():
-	health.heal(25)
-	#Delete item
+	if health.current_health != health.MAX_HEALTH:
+		health.heal(25)
+		hotbar.consume(held_item_index)
 
 #Tool Use: Sword
 func sword():

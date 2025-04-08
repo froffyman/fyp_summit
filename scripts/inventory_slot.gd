@@ -104,7 +104,7 @@ func _active(val: bool):
 
 #ON EQUIP, SET ACTIVE_OUTLINE COLOR: active_outline.modulate = Color.hex(0xf873ff)
 
-func _equipped(val):
+func _equipped(val: bool):
 	equipped = val
 	active_outline.visible = val
 	#if val:

@@ -20,6 +20,7 @@ func collectible_generation(slot):
 	new_collectible.constructor(slot)
 	
 func _on_level_spawn(destination_tag: String):
-	var gate = get_node("Gates/" + destination_tag) as Gate
-	NavManager.trigger_player_spawn(gate.spawn.global_position, gate.spawn_direction)
+	var gate = get_node_or_null("Gates/" + destination_tag) as Gate
+	if gate != null:
+		NavManager.trigger_player_spawn(gate.spawn.global_position, gate.spawn_direction)
 	

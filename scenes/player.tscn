@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://nx8on6y4nmpg"]
+[gd_scene load_steps=21 format=3 uid="uid://nx8on6y4nmpg"]
 
 [ext_resource type="Texture2D" uid="uid://cx564lit7pp3q" path="res://assets/sprites/player/Avril_Everything.png" id="1_gu4uv"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xksq5"]
 [ext_resource type="PackedScene" uid="uid://dmhvpjbi0u3ss" path="res://scenes/inventory_ui.tscn" id="4_70unw"]
 [ext_resource type="Resource" uid="uid://dpc6yjkdu4xh0" path="res://resources/stats.tres" id="4_xmb2r"]
-[ext_resource type="PackedScene" uid="uid://cvskxee1fmyjg" path="res://scenes/hotbar.tscn" id="5_1toi3"]
 [ext_resource type="PackedScene" uid="uid://ba6bn82kbnf0s" path="res://scenes/drag_texture.tscn" id="8_fi8wq"]
 [ext_resource type="PackedScene" uid="uid://da5ssknkh5urp" path="res://scenes/inv_ui_component.tscn" id="8_nmffa"]
 [ext_resource type="PackedScene" uid="uid://blbmvgivelnco" path="res://scenes/stat_menu.tscn" id="9_xghsm"]
@@ -151,10 +150,6 @@ anchor_top = 0.0
 anchor_bottom = 0.2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Hotbar" parent="InventoryLayer" instance=ExtResource("5_1toi3")]
-visible = false
-grow_vertical = 2
 
 [node name="InvUIComponent" parent="InventoryLayer" node_paths=PackedStringArray("drag_texture") instance=ExtResource("8_nmffa")]
 unique_name_in_owner = true

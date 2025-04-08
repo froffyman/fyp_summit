@@ -9,6 +9,9 @@ var inv_resource: Inv
 @onready var slot_container = %SlotContainer
 @onready var slots = []
 
+var equip_block: bool = false
+var equipped_slot: int = -1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	slot_container.columns = columns
@@ -26,6 +29,17 @@ func set_inv(res: Inv):
 		new_slot.init(drag_texture, inv_resource, i)
 		new_slot.update_slots.connect(update_slots)
 		slots.append(new_slot)
+
+func equip_block_toggle(val: bool):
+	equip_block = val
+
+func show_equipped(index):
+	if equip_block == false:
+		if equipped_slot != -1:
+			slots[equipped_slot]._equipped(false)
+		
+		slots[index]._equipped(true)
+		equipped_slot = index
 
 func update_slots():
 	for i in range(inv_size):
