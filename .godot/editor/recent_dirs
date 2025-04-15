@@ -1,4 +1,6 @@
+res://resources/quests
 res://scenes
+res://assets/sprites/npcs/elly_flower
 res://assets/dialogue
 res://assets/sprites/npcs/daniel
 C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG
@@ -15,8 +17,6 @@ res://
 C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/Slime Test Game
 res://assets/sprites/backgrounds
 res://resources/items
-res://assets/sprites/npcs/elly_flower
 res://assets/sprites/items/fishing_spear/anim_fishing_spear
 res://assets/sprites/objects/tree
 res://assets/sprites/objects/house
-res://assets/sprites/objects/exclamation_mark

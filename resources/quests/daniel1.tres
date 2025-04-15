@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="quest" load_steps=3 format=3 uid="uid://bp7xmgg12e4si"]
+
+[ext_resource type="Script" path="res://scripts/quest.gd" id="1_lufoq"]
+[ext_resource type="Texture2D" uid="uid://bihttv7400fmg" path="res://assets/sprites/npcs/quest_icons/daniel.png" id="1_mldxk"]
+
+[resource]
+script = ExtResource("1_lufoq")
+quest_giver = ExtResource("1_mldxk")
+title = "Kill 10 Red Slimes"
+prog_title = "Slimes Killed:"
+goal = 10
+prog = 0
+signal_name = "enemy_died"

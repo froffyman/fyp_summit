@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @export var player_detect: PlayerDetectComponent
 @export var dialogue_component: DialogueComponent
+@export var quest_dialogue: QuestDialogueComponent
 
 var can_chat: bool = false
 var chatting: bool = false
@@ -13,7 +14,14 @@ func _ready():
 		player_detect.player_entered.connect(_on_area_2d_body_entered)
 		player_detect.player_left.connect(_on_area_2d_body_exited)
 	dialogue_component.dialogue_ended.connect(dialogue_finished)
+	if quest_dialogue:
+		quest_dialogue.quest_accepted.connect(dialogue_finished)
+		quest_dialogue.quest_denied.connect(dialogue_finished)
+		dialogue_component.offer_quest.connect(quest_offering)
 
+func quest_offering():
+	dialogue_component.visible = false
+	quest_dialogue.visible = true
 
 func _process(_delta):
 	if can_chat and Input.is_action_just_released("interact"):

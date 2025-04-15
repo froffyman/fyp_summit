@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv6rkosb6kggu"]
+
+[ext_resource type="Texture2D" uid="uid://cvvs1pvjjvcr2" path="res://assets/sprites/ui/inventory_background.png" id="1_6fjmd"]
+[ext_resource type="Texture2D" uid="uid://dvu8j16yshqpg" path="res://assets/sprites/npcs/daniel/daniel.png" id="2_gttvi"]
+[ext_resource type="Script" path="res://scripts/quest_info.gd" id="2_mnx45"]
+[ext_resource type="FontFile" uid="uid://bn0mym6vxgjoe" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_oyrpp"]
+[ext_resource type="FontFile" uid="uid://dnk0wvdr4o8lk" path="res://assets/fonts/PixelOperator8.ttf" id="4_2mles"]
+
+[node name="QuestInfo" type="NinePatchRect"]
+custom_minimum_size = Vector2(230, 48)
+size_flags_vertical = 2
+mouse_filter = 1
+texture = ExtResource("1_6fjmd")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+script = ExtResource("2_mnx45")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="QuestGiver" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_gttvi")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="QuestTitle" type="Label" parent="HBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_oyrpp")
+theme_override_font_sizes/font_size = 8
+text = "Catch 5 Fish"
+
+[node name="Buffer" type="Label" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_2mles")
+theme_override_font_sizes/font_size = 8
+text = "
+"
+
+[node name="QuestProg_title" type="Label" parent="HBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_2mles")
+theme_override_font_sizes/font_size = 8
+text = "Fish Caught:"
+
+[node name="QuestProg" type="Label" parent="HBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_2mles")
+theme_override_font_sizes/font_size = 8
+text = "0"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="quest" load_steps=3 format=3 uid="uid://bhui1vcb8s0og"]
+
+[ext_resource type="Texture2D" uid="uid://8t82juhk1tj6" path="res://assets/sprites/npcs/quest_icons/elly_flower.png" id="1_r3c1w"]
+[ext_resource type="Script" path="res://scripts/quest.gd" id="1_viaot"]
+
+[resource]
+script = ExtResource("1_viaot")
+quest_giver = ExtResource("1_r3c1w")
+title = "Catch 5 Fish"
+prog_title = "Fish Caught:"
+goal = 5
+prog = 0
+signal_name = "fish_caught"

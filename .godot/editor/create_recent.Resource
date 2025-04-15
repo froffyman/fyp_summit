@@ -1,3 +1,4 @@
+quest
 InvItem
 EnemyList
 PlrStats

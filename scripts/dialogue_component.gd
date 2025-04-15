@@ -12,6 +12,7 @@ var line_length = 0
 
 signal custom_sig
 signal dialogue_ended
+signal offer_quest
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,17 +38,17 @@ func dialogue_end():
 	
 
 func next_line():
-	if current_line < len(dialogue) - 1:
-		if content.visible_characters == line_length:
-			current_line += 1
-			box_name.text = dialogue[current_line]["name"]
-			content.text = dialogue[current_line]["content"]
-			line_length = len(dialogue[current_line]["content"])
-			content.visible_characters = 0
-			
-			if dialogue[current_line].has("signal"):
-				custom_sig.emit(dialogue[current_line]["signal"])
-		else: #Skip to the end of a line
-			content.visible_characters = line_length
-	else:
-		dialogue_end()
+	if content.visible_characters == line_length:
+		if current_line != -1 and dialogue[current_line]["type"] == "quest":
+				offer_quest.emit()
+		else:
+			if current_line < len(dialogue) - 1:
+				current_line += 1
+				box_name.text = dialogue[current_line]["name"]
+				content.text = dialogue[current_line]["content"]
+				line_length = len(dialogue[current_line]["content"])
+				content.visible_characters = 0
+			else:
+				dialogue_end()
+	else: #Skip to the end of a line
+		content.visible_characters = line_length

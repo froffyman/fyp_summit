@@ -10,6 +10,7 @@ var speed_modifier = 1 #Changed to speed the player up/slow them down when neede
 @onready var hurtbox: HurtboxComponent = %HurtboxComponent
 @onready var health: HealthComponent = %HealthComponent
 @onready var ui_layer = %InventoryLayer
+@onready var quest_menu = %QuestMenu
 
 @onready var hotbar_ui = %InvUIComponent
 
@@ -94,7 +95,21 @@ func _on_spawn(position: Vector2, direction: String):
 func update_active_inv(new_inv):
 	active_inv = new_inv
 
+func return_to_menu():
+	save_stats()
+	held_item = null
+
 func _process(delta):
+	
+	#Pause Menu
+	if Input.is_action_just_pressed("pause") and Engine.time_scale != 0:
+		var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
+		ui_layer.add_child(pause_menu)
+		pause_menu.quit_to_menu.connect(return_to_menu)
+		Engine.time_scale = 0
+		
+	
+	#Hotbar Tool Equip
 	for i in range(len(slot_inputs)):
 		if Input.is_action_just_pressed(slot_inputs[i]):
 			if access_mode == "":
@@ -236,7 +251,7 @@ func save_health():
 	stats.max_health = health.MAX_HEALTH
 
 func save_stats():
-	SaveManager.save(stats, inv, hotbar)
+	SaveManager.save(stats, inv, hotbar, null, null, null, quest_menu.all_quest_data())
 
 # Tile Data for Marker
 func get_tile_data():
@@ -301,6 +316,7 @@ func stop_fishing():
 		var caught_fish: InvSlot = InvSlot.new()
 		caught_fish.item = preload("res://resources/items/fish/pinktail_fish.tres")
 		caught_fish.amount = 1
+		SignalManager.fish_caught.emit()
 		SignalManager.make_item_collectible.emit(caught_fish)
 		
 		exp_gain("fishing", randi_range(5, 10))

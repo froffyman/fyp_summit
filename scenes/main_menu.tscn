@@ -79,7 +79,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_kg5e5")
 text = "Final Year Project Demo 
-v0.1.6b"
+v0.1.7a"
 horizontal_alignment = 1
 
 [node name="Play" type="NinePatchRect" parent="MainButtons"]
@@ -277,5 +277,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="gui_input" from="MainButtons/Play" to="." method="_on_play_gui_input"]
+[connection signal="gui_input" from="MainButtons/Quit" to="." method="_on_quit_gui_input"]
 [connection signal="gui_input" from="SaveFileContainer/ScrollContainer/SaveFileScrollbox/AddFile" to="." method="_on_add_file_gui_input"]
 [connection signal="gui_input" from="SaveFileContainer/Back" to="." method="_on_back_gui_input"]

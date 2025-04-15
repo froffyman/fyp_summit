@@ -8,5 +8,5 @@
 	{"name": "Elly", "type": "dialogue", "content": "And you know, I don't mind it. Being a flower's got its merits too. It's just..."},
 	{"name": "Elly", "type": "dialogue", "content": "I seek vengeance."},
 	{"name": "Elly", "type": "dialogue", "content": "And you've been here listening to me for long enough now..."},
-	{"name": "Elly", "type": "quest", "content": "Would you be so kind as to deliver my vengeance for me? I'll even give you my precious fishing rod.", "signal": "give_rod"}	
+	{"name": "Elly", "type": "quest", "content": "Would you be so kind as to deliver my vengeance for me? Here, I'll even give you my precious fishing rod.", "signal": "give_rod", "quest": "elly1"}	
 ]

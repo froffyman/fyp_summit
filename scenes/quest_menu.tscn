@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4s24qtes8r3j"]
+
+[ext_resource type="Texture2D" uid="uid://cvvs1pvjjvcr2" path="res://assets/sprites/ui/inventory_background.png" id="1_grymk"]
+[ext_resource type="Script" path="res://scripts/quest_menu.gd" id="2_ndigl"]
+[ext_resource type="FontFile" uid="uid://bn0mym6vxgjoe" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_mqqui"]
+
+[node name="QuestMenu" type="NinePatchRect"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.4
+texture = ExtResource("1_grymk")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+script = ExtResource("2_ndigl")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_right = 0.7
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_mqqui")
+text = "Quests"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[connection signal="child_entered_tree" from="ScrollContainer/VBoxContainer" to="." method="_on_v_box_container_child_entered_tree"]
+[connection signal="child_exiting_tree" from="ScrollContainer/VBoxContainer" to="." method="_on_v_box_container_child_exiting_tree"]

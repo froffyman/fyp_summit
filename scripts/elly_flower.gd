@@ -2,9 +2,13 @@ extends Node2D
 
 
 @onready var dialogue = %DialogueComponent
+@onready var quest_dialogue = %QuestDialogueComponent
 
 func _ready():
 	dialogue.custom_sig.connect(drop_rod)
+
+func perform_quest():
+	quest_dialogue.visible = true
 
 func drop_rod(sig):
 	if sig == "give_rod":

@@ -1,0 +1,144 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhr0op8psypxo"]
+
+[ext_resource type="Texture2D" uid="uid://cvvs1pvjjvcr2" path="res://assets/sprites/ui/inventory_background.png" id="1_vue40"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="2_vnl0k"]
+[ext_resource type="FontFile" uid="uid://bn0mym6vxgjoe" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_n6v4m"]
+
+[node name="PauseMenu" type="NinePatchRect"]
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.2
+anchor_right = 0.6
+anchor_bottom = 0.7
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vue40")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+script = ExtResource("2_vnl0k")
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_right = 0.8
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_n6v4m")
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="Resume" type="NinePatchRect" parent="MainButtons"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 6
+mouse_filter = 1
+texture = ExtResource("1_vue40")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="PlayLabel" type="Label" parent="MainButtons/Resume"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -32.0
+offset_right = 128.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_n6v4m")
+text = "Resume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="NinePatchRect" parent="MainButtons"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 6
+mouse_filter = 1
+texture = ExtResource("1_vue40")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="PlayLabel" type="Label" parent="MainButtons/Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -32.0
+offset_right = 128.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_n6v4m")
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="NinePatchRect" parent="MainButtons"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 6
+mouse_filter = 1
+texture = ExtResource("1_vue40")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="PlayLabel" type="Label" parent="MainButtons/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -32.0
+offset_right = 128.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_n6v4m")
+text = "Quit
+to Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="MainButtons/Resume" to="." method="_on_resume_gui_input"]
+[connection signal="gui_input" from="MainButtons/Quit" to="." method="_on_quit_gui_input"]

@@ -5,7 +5,10 @@ signal can_drop_item_on_ground
 signal active_inventory
 signal dragged
 
+signal new_quest
+
 signal enemy_died
+signal fish_caught
 
 signal chat_update
 

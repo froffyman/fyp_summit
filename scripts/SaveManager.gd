@@ -5,7 +5,7 @@ var file_id: int = 1
 func update_file_id(new_id: int):
 	file_id = new_id
 
-func save(stats=null, backpack=null, hotbar=null, village=null, forest=null, home=null):
+func save(stats=null, backpack=null, hotbar=null, village=null, forest=null, home=null, quests=null):
 	var data = ResourceLoader.load(str("user://file", file_id, ".tres")) as save_file
 	if data == null:
 		data = save_file.new()
@@ -22,6 +22,8 @@ func save(stats=null, backpack=null, hotbar=null, village=null, forest=null, hom
 		data.forest = forest #PackedScene.new().pack(forest)
 	if home != null:
 		data.home = home #PackedScene.new().pack(home)
+	if quests != null:
+		data.quests = quests
 
 	ResourceSaver.save(data, str("user://file", file_id, ".tres"))
 func load_plr():
@@ -46,3 +48,7 @@ func load_forest():
 func load_home():
 	var data = ResourceLoader.load(str("user://file", file_id, ".tres")) as save_file
 	return data.home
+
+func load_quests():
+	var data = ResourceLoader.load(str("user://file", file_id, ".tres")) as save_file
+	return data.quests

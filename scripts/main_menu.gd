@@ -62,3 +62,8 @@ func _on_add_file_gui_input(event):
 		SaveManager.save(PlrStats.new(), inv, hotbar)
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
 		
+
+
+func _on_quit_gui_input(event):
+	if Input.is_action_just_pressed("click"):
+		get_tree().quit()

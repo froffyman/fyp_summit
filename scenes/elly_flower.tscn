@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://dnkta8e1l1xr2"]
+[gd_scene load_steps=15 format=3 uid="uid://dnkta8e1l1xr2"]
 
 [ext_resource type="PackedScene" uid="uid://cy3k4sddhsyho" path="res://scenes/npc_component.tscn" id="1_bguqb"]
 [ext_resource type="Script" path="res://scripts/elly_flower.gd" id="1_k1r1w"]
 [ext_resource type="PackedScene" uid="uid://co0mvnuqkcli1" path="res://scenes/player_detect_component.tscn" id="1_vat7n"]
 [ext_resource type="Texture2D" uid="uid://nteiunny45f8" path="res://assets/sprites/npcs/elly_flower/Elly_Flower.png" id="2_ok14y"]
 [ext_resource type="PackedScene" uid="uid://p5qk087di65r" path="res://scenes/dialogue_component.tscn" id="4_mrh8o"]
+[ext_resource type="PackedScene" uid="uid://d1tj6iwolbylw" path="res://scenes/quest_dialogue_component.tscn" id="6_waxvr"]
+[ext_resource type="Resource" uid="uid://bhui1vcb8s0og" path="res://resources/quests/elly1.tres" id="7_q0feh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ldhom"]
 radius = 8.0
@@ -51,10 +53,11 @@ radius = 32.0
 [node name="EllyFlower" type="Node2D"]
 script = ExtResource("1_k1r1w")
 
-[node name="NPCComponent" parent="." node_paths=PackedStringArray("player_detect", "dialogue_component") instance=ExtResource("1_bguqb")]
+[node name="NPCComponent" parent="." node_paths=PackedStringArray("player_detect", "dialogue_component", "quest_dialogue") instance=ExtResource("1_bguqb")]
 platform_floor_layers = 4294967294
 player_detect = NodePath("../PlayerDetectComponent")
 dialogue_component = NodePath("../DialogueLayer/DialogueComponent")
+quest_dialogue = NodePath("../DialogueLayer/QuestDialogueComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCComponent"]
 shape = SubResource("CircleShape2D_ldhom")
@@ -91,3 +94,7 @@ shape = SubResource("CircleShape2D_7kbwp")
 unique_name_in_owner = true
 size_flags_vertical = 4
 dialogue_data = "res://assets/dialogue/elly_flower.json"
+
+[node name="QuestDialogueComponent" parent="DialogueLayer" instance=ExtResource("6_waxvr")]
+unique_name_in_owner = true
+quest_res = ExtResource("7_q0feh")
