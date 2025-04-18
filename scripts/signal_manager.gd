@@ -6,6 +6,7 @@ signal active_inventory
 signal dragged
 
 signal new_quest
+signal quest_reward
 
 signal enemy_died
 signal fish_caught

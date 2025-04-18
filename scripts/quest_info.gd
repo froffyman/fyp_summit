@@ -11,8 +11,11 @@ var prog_num: int = 0
 var max_prog: int = 1
 
 var sig_name: String
+var completed: bool = false
+var stat: String
 
 func complete():
+	completed = true
 	title.modulate = Color.CHARTREUSE
 	prog_title.modulate = Color.CHARTREUSE
 	prog.modulate = Color.CHARTREUSE
@@ -26,6 +29,7 @@ func make_quest_save():
 	quest_data.prog = prog_num
 	quest_data.goal = max_prog
 	quest_data.signal_name = sig_name
+	quest_data.stat = stat
 	
 	return quest_data
 
@@ -41,6 +45,9 @@ func set_quest(quest_res: quest):
 	prog_num = quest_res.prog
 	prog.text = str(prog_num)
 	max_prog = new_max
+	if prog_num >= max_prog:
+		complete()
+	stat = quest_res.stat
 	
 	giver_img.texture = new_giver
 	title.text = new_title
@@ -53,3 +60,9 @@ func increment_prog():
 	
 	if prog_num >= max_prog:
 		complete()
+
+
+func _on_gui_input(event):
+	if Input.is_action_just_pressed("click") and completed:
+		SignalManager.quest_reward.emit(stat, 30)
+		queue_free()

@@ -11,3 +11,4 @@ prog_title = "Fish Caught:"
 goal = 5
 prog = 0
 signal_name = "fish_caught"
+stat = "fishing"

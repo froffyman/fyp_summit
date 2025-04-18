@@ -7,3 +7,5 @@ class_name quest
 @export var goal: int
 @export var prog: int = 0
 @export var signal_name: String
+
+@export var stat: String

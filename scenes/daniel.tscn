@@ -41,9 +41,10 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "c432925caae34bdff436cb3e309cc293"
 
-[node name="NPCComponent" parent="." node_paths=PackedStringArray("player_detect", "dialogue_component") instance=ExtResource("1_vyq2g")]
+[node name="NPCComponent" parent="." node_paths=PackedStringArray("player_detect", "dialogue_component", "quest_dialogue") instance=ExtResource("1_vyq2g")]
 player_detect = NodePath("../PlayerDetectComponent")
 dialogue_component = NodePath("../DialogueLayer/DialogueComponent")
+quest_dialogue = NodePath("../DialogueLayer/QuestDialogueComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCComponent"]
 shape = SubResource("CapsuleShape2D_q2jbl")
@@ -61,8 +62,6 @@ unique_name_in_owner = true
 dialogue_data = "res://assets/dialogue/daniel.json"
 
 [node name="QuestDialogueComponent" parent="DialogueLayer" instance=ExtResource("6_lqd15")]
-offset_left = 147.938
-offset_top = 168.157
-offset_right = 147.938
-offset_bottom = 168.157
+unique_name_in_owner = true
+anchors_preset = -1
 quest_res = ExtResource("7_58yg5")

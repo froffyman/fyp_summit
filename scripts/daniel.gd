@@ -8,6 +8,7 @@ func _ready():
 
 func drop_sword(sig):
 	if sig == "give_sword":
+		print("dropping sword!")
 		var sword = InvSlot.new()
 		sword.item = preload("res://resources/items/daniels_sword.tres")
 		sword.amount = 1

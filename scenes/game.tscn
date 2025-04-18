@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://gmp67wok1502"]
+[gd_scene load_steps=23 format=3 uid="uid://gmp67wok1502"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_5o0ee"]
 [ext_resource type="PackedScene" uid="uid://nx8on6y4nmpg" path="res://scenes/player.tscn" id="1_tjkda"]
@@ -15,44 +15,6 @@
 [ext_resource type="Resource" uid="uid://dn7t3nmya8bpn" path="res://resources/items/fishing_rod.tres" id="12_gsh8h"]
 [ext_resource type="PackedScene" uid="uid://b3o8q1nxpahh2" path="res://scenes/gateway.tscn" id="13_t5xil"]
 [ext_resource type="PackedScene" uid="uid://s0lvx1uxdl4x" path="res://scenes/house.tscn" id="14_5vo85"]
-[ext_resource type="PackedScene" uid="uid://ckctee1bexb5f" path="res://scenes/npc.tscn" id="16_cywa6"]
-[ext_resource type="Texture2D" uid="uid://nteiunny45f8" path="res://assets/sprites/npcs/elly_flower/Elly_Flower.png" id="17_dg80s"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5aa4i"]
-atlas = ExtResource("17_dg80s")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_apolj"]
-atlas = ExtResource("17_dg80s")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f8b0k"]
-atlas = ExtResource("17_dg80s")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ggwx5"]
-atlas = ExtResource("17_dg80s")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gdpoa"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5aa4i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_apolj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f8b0k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ggwx5")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b5yuj"]
 texture = ExtResource("2_nyld8")
@@ -129,14 +91,6 @@ size = Vector2(16, 5)
 [node name="Game" type="Node2D" groups=["Locations"]]
 y_sort_enabled = true
 script = ExtResource("1_5o0ee")
-
-[node name="NPC" parent="." instance=ExtResource("16_cywa6")]
-position = Vector2(413, 446)
-
-[node name="AnimatedSprite2D" parent="NPC" index="0"]
-sprite_frames = SubResource("SpriteFrames_gdpoa")
-animation = &"default"
-autoplay = "default"
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, -34)
@@ -309,6 +263,5 @@ shape = SubResource("RectangleShape2D_3bfu5")
 [node name="SpawnPoint" parent="Gates/PFDOutside" index="1"]
 position = Vector2(0, 20)
 
-[editable path="NPC"]
 [editable path="Gates/ForestGate"]
 [editable path="Gates/PFDOutside"]

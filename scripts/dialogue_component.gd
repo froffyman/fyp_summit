@@ -48,6 +48,9 @@ func next_line():
 				content.text = dialogue[current_line]["content"]
 				line_length = len(dialogue[current_line]["content"])
 				content.visible_characters = 0
+				
+				if dialogue[current_line].has("signal"):
+					custom_sig.emit(dialogue[current_line]["signal"])
 			else:
 				dialogue_end()
 	else: #Skip to the end of a line

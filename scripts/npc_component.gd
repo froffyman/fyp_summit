@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 var can_chat: bool = false
 var chatting: bool = false
+var quest_accepted: bool = false
 
 func _ready():
 	if player_detect:
@@ -15,8 +16,8 @@ func _ready():
 		player_detect.player_left.connect(_on_area_2d_body_exited)
 	dialogue_component.dialogue_ended.connect(dialogue_finished)
 	if quest_dialogue:
-		quest_dialogue.quest_accepted.connect(dialogue_finished)
-		quest_dialogue.quest_denied.connect(dialogue_finished)
+		quest_dialogue.quest_accepted.connect(dialogue_finished.bind(true))
+		quest_dialogue.quest_denied.connect(dialogue_finished.bind(false))
 		dialogue_component.offer_quest.connect(quest_offering)
 
 func quest_offering():
@@ -33,17 +34,20 @@ func _process(_delta):
 			dialogue_component.next_line()
 
 func _on_area_2d_body_entered(body):
-	if body is Player:
+	if body is Player and not quest_accepted:
 		can_chat = true
 		label_animator.play("text_rise")
 
-func dialogue_finished():
+func dialogue_finished(quest_choice: bool):
 	chatting = false
-	can_chat = true
-	label_animator.play("text_rise")
+	if not quest_choice:
+		can_chat = true
+		label_animator.play("text_rise")
+	else:
+		quest_accepted = true
 
 func _on_area_2d_body_exited(body):
-	if body is Player:
+	if body is Player and can_chat:
 		can_chat = false
 		if not chatting: #Stop disappear animation playing when the label is already invisible
 			label_animator.play("text_fall")

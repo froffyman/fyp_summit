@@ -69,3 +69,5 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_2mles")
 theme_override_font_sizes/font_size = 8
 text = "0"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

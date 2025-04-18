@@ -77,6 +77,7 @@ func _ready():
 	SignalManager.active_inventory.connect(update_active_inv)
 	SignalManager.enemy_died.connect(exp_gain.bind("combat", randi_range(8, 15)))
 	SignalManager.chat_update.connect(chat_update)
+	SignalManager.quest_reward.connect(exp_gain)
 	
 	NavManager.on_trigger_player_spawn.connect(_on_spawn)
 	

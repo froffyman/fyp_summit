@@ -11,3 +11,4 @@ prog_title = "Slimes Killed:"
 goal = 10
 prog = 0
 signal_name = "enemy_died"
+stat = "combat"

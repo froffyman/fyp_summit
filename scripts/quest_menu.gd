@@ -35,3 +35,7 @@ func _on_v_box_container_child_entered_tree(node):
 func _on_v_box_container_child_exiting_tree(node):
 	if quest_container.get_child_count() == 0:
 		visible = false 
+
+
+func _on_gui_input(event):
+	pass # Replace with function body.
