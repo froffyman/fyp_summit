@@ -1,5 +1,5 @@
 6dcd580d9bf2a9dbe66cc9f994d3620b
-::res://::1745261823
+::res://::1745262026
 icon.svg::CompressedTexture2D::8358592017747921325::1729068849::1729068856::1::::<><>::
 README.md::TextFile::-1::1741184575::0::1::::<><>::
 ::res://addons/::1740601488
@@ -168,9 +168,9 @@ player_death_anim.png::CompressedTexture2D::9088567008318636261::1743452637::174
 inventory_active_outline.png::CompressedTexture2D::3016307400425731938::1731502104::1731502104::1::::<><>::
 inventory_background.png::CompressedTexture2D::6291299173844380157::1730227238::1730227242::1::::<><>::
 inventory_icon.png::CompressedTexture2D::6235933648220369535::1730227725::1730227242::1::::<><>::
-::res://resources/::1745258385
-hotbar.tres::Resource/Inv::7663801745993963106::1745258381::0::1::::<><>::res://scripts/inventory.gd<>res://scripts/res_inventory_slot.gd
-inventory.tres::Resource/Inv::2854389892287673867::1745258385::0::1::::<><>::res://scripts/inventory.gd<>res://scripts/res_inventory_slot.gd<>uid://b7nno6lek0qto::::res://resources/items/apple.tres
+::res://resources/::1745261872
+hotbar.tres::Resource/Inv::7663801745993963106::1745261872::0::1::::<><>::res://scripts/inventory.gd<>res://scripts/res_inventory_slot.gd
+inventory.tres::Resource/Resource::2854389892287673867::1745258385::0::1::::<><>::res://scripts/inventory.gd<>res://scripts/res_inventory_slot.gd<>uid://b7nno6lek0qto::::res://resources/items/apple.tres
 stats.tres::Resource/Resource::8218149035309781483::1742929718::0::1::::<><>::res://scripts/player_stats.gd
 ::res://resources/enemy_lists/::1741197058
 easy.tres::Resource/Resource::1687144954101528475::1741197058::0::1::::<><>::res://scripts/enemy_list.gd
@@ -188,7 +188,7 @@ pinktail_fish.tres::Resource/Resource::4172652726497963878::1739643320::0::1::::
 daniel1.tres::Resource/Resource::3506731672380507888::1744998453::0::1::::<><>::res://scripts/quest.gd<>uid://bihttv7400fmg::::res://assets/sprites/npcs/quest_icons/daniel.png
 elly1.tres::Resource/Resource::2919563416994415494::1744998453::0::1::::<><>::uid://8t82juhk1tj6::::res://assets/sprites/npcs/quest_icons/elly_flower.png<>res://scripts/quest.gd
 ::res://saves/::1743615047
-::res://scenes/::1745261711
+::res://scenes/::1745261887
 anim_component.tscn::PackedScene::6644186902157722438::1741375147::0::1::::<><>::res://scripts/anim_component.gd
 anim_fishing_rod.tscn::PackedScene::6426499558528219101::1740609269::0::1::::<><>::res://scripts/anim_fishing_rod.gd<>uid://djjpx08hgasyk::::res://assets/sprites/items/fishing_rod/anim_fishing_rod/fishing-rod.png
 anim_fishing_spear.tscn::PackedScene::3369387732413226591::1740609269::0::1::::<><>::res://scripts/anim_fishing_spear.gd<>uid://b5nbtanmxkmcp::::res://assets/sprites/items/fishing_spear/anim_fishing_spear/fishing_spear.png
@@ -211,7 +211,7 @@ hitbox_component.tscn::PackedScene::1889386177059885386::1741114185::0::1::::<><
 home.tscn::PackedScene::7021925330272981578::1740863797::0::1::::<><>::res://scripts/home.gd<>uid://nx8on6y4nmpg::::res://scenes/player.tscn<>uid://cx1bv2xujbd0b::::res://assets/sprites/backgrounds/house_tileset.png<>uid://b3o8q1nxpahh2::::res://scenes/gateway.tscn<>uid://ywv6mguwsoe1::::res://scenes/collectible.tscn<>uid://l6ieak70cd32::::res://resources/items/fishing_spear.tres<>res://scripts/res_inventory_slot.gd
 hotbar.tscn::PackedScene::6284614344006556040::1745261638::0::1::::<><>::res://scripts/hotbar.gd<>uid://dhgnxvqxesf2i::::res://resources/hotbar.tres<>uid://cvvs1pvjjvcr2::::res://assets/sprites/ui/inventory_background.png
 house.tscn::PackedScene::1315715267070055205::1740508194::0::1::::<><>::uid://b2ipjy2vtchy8::::res://assets/sprites/objects/house/house_shadow.png<>uid://bbpysu38c0ga2::::res://assets/sprites/objects/house/house.png
-how_to_menu.tscn::PackedScene::4772177946583333040::1745261638::0::1::::<><>::uid://cvvs1pvjjvcr2::::res://assets/sprites/ui/inventory_background.png<>uid://bn0mym6vxgjoe::::res://assets/fonts/PixelOperator8-Bold.ttf<>res://scripts/how_to_menu.gd
+how_to_menu.tscn::PackedScene::4772177946583333040::1745261887::0::1::::<><>::uid://cvvs1pvjjvcr2::::res://assets/sprites/ui/inventory_background.png<>uid://bn0mym6vxgjoe::::res://assets/fonts/PixelOperator8-Bold.ttf<>res://scripts/how_to_menu.gd
 hurtbox_component.tscn::PackedScene::6418823557005656922::1743452640::0::1::::<><>::res://scripts/hurtbox_component.gd
 inventory_slot.tscn::PackedScene::7227249785372845231::1745261639::0::1::::<><>::uid://cu3y6fat6ye4f::::res://assets/sprites/ui/inventory_icon.png<>res://scripts/inventory_slot.gd<>uid://dnk0wvdr4o8lk::::res://assets/fonts/PixelOperator8.ttf<>uid://bi8ee3m57k8ck::::res://assets/sprites/ui/inventory_active_outline.png
 inventory_ui.tscn::PackedScene::8017281137423445974::1745246410::0::1::::<><>::res://scripts/inventoryui.gd<>uid://cvvs1pvjjvcr2::::res://assets/sprites/ui/inventory_background.png<>uid://bgwxncqfx5hdj::::res://resources/inventory.tres

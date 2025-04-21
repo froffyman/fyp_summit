@@ -1,9 +1,11 @@
 extends Node2D
+class_name EnemySpawner
 
 @export var spawn_zone: Path2D
 @export var enemy_list_path: String
 
 var enemy_list
+var spawnable: bool = false
 
 func _ready():
 	if enemy_list_path:
@@ -20,6 +22,8 @@ func _on_body_entered(body):
 			if spawn_zone.has_method("spawn_toggle"):
 				spawn_zone.spawn_toggle(true)
 
+func is_spawnable():
+	return spawnable
 
 func _on_body_exited(body):
 	if body is Player:
