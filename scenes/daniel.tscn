@@ -45,6 +45,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "c432925caae34bdff436cb3e309cc293"
 player_detect = NodePath("../PlayerDetectComponent")
 dialogue_component = NodePath("../DialogueLayer/DialogueComponent")
 quest_dialogue = NodePath("../DialogueLayer/QuestDialogueComponent")
+npc_id = "daniel"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCComponent"]
 shape = SubResource("CapsuleShape2D_q2jbl")

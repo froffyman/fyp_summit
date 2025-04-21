@@ -22,9 +22,14 @@ func _on_quit_gui_input(event):
 	if Input.is_action_just_pressed("click"):
 		Engine.time_scale = 1.0
 		quit_to_menu.emit()
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
 func _on_resume_gui_input(event):
 	if Input.is_action_just_pressed("click"):
 		unpause()
+
+
+func _on_controls_gui_input(event):
+	if Input.is_action_just_pressed("click"):
+		var how_to_menu = preload("res://scenes/how_to_menu.tscn").instantiate()
+		add_sibling(how_to_menu)

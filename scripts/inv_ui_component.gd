@@ -4,7 +4,7 @@ class_name InvUIComponent
 var inv_resource: Inv
 @export var columns: int
 @export var inv_size: int
-@export var drag_texture: Sprite2D
+@export var drag_texture: TextureRect
 
 @onready var slot_container = %SlotContainer
 @onready var slots = []

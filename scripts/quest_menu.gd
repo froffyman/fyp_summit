@@ -12,15 +12,14 @@ func _ready():
 		add_quest(saved_quests[i])
 
 func all_quest_data():
+	var quest_arr: Array[quest]
 	if quest_container.get_child_count() > 0:
 		var active_quests = quest_container.get_children()
-		var quest_arr: Array[quest]
 		quest_arr.resize(quest_container.get_child_count())
 		
 		for i in range(quest_container.get_child_count()):
 			quest_arr[i] = active_quests[i].make_quest_save()
-		return quest_arr
-	return null
+	return quest_arr
 
 func add_quest(q: quest):
 	var new_quest_info = preload("res://scenes/quest_info.tscn").instantiate()

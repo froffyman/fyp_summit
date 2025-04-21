@@ -51,7 +51,7 @@ func _on_add_file_gui_input(event):
 		SaveManager.file_id = current_file
 		
 		var inv = Inv.new()
-		inv.slots.resize(12)
+		inv.slots.resize(16)
 		for i in range(inv.slots.size()):
 			inv.slots[i] = InvSlot.new()
 		var hotbar = Inv.new()
@@ -67,3 +67,13 @@ func _on_add_file_gui_input(event):
 func _on_quit_gui_input(event):
 	if Input.is_action_just_pressed("click"):
 		get_tree().quit()
+
+func display_buttons():
+	main_buttons.visible = true
+
+func _on_how_to_gui_input(event):
+	if Input.is_action_just_pressed("click"):
+		var how_to_menu = preload("res://scenes/how_to_menu.tscn").instantiate()
+		main_buttons.visible = false
+		add_child(how_to_menu)
+		how_to_menu.exit.connect(display_buttons)

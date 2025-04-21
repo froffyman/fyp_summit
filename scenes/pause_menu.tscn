@@ -102,7 +102,7 @@ theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 5
 theme_override_fonts/font = ExtResource("3_n6v4m")
-text = "Controls"
+text = "How to Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -141,4 +141,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="gui_input" from="MainButtons/Resume" to="." method="_on_resume_gui_input"]
+[connection signal="gui_input" from="MainButtons/Controls" to="." method="_on_controls_gui_input"]
 [connection signal="gui_input" from="MainButtons/Quit" to="." method="_on_quit_gui_input"]

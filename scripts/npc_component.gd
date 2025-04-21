@@ -5,12 +5,17 @@ extends CharacterBody2D
 @export var player_detect: PlayerDetectComponent
 @export var dialogue_component: DialogueComponent
 @export var quest_dialogue: QuestDialogueComponent
+@export var npc_id: String
 
 var can_chat: bool = false
 var chatting: bool = false
 var quest_accepted: bool = false
 
 func _ready():
+	var spoken_npcs = SaveManager.load_spoken_npcs()
+	if spoken_npcs.has(npc_id):
+		quest_accepted = true
+	
 	if player_detect:
 		player_detect.player_entered.connect(_on_area_2d_body_entered)
 		player_detect.player_left.connect(_on_area_2d_body_exited)
@@ -44,7 +49,13 @@ func dialogue_finished(quest_choice: bool):
 		can_chat = true
 		label_animator.play("text_rise")
 	else:
+		
+		var spoken_npcs = SaveManager.load_spoken_npcs()
+		spoken_npcs.append(npc_id)
+		SaveManager.save(null, null, null, null, null, null, null, spoken_npcs)
+		
 		quest_accepted = true
+		can_chat = false
 
 func _on_area_2d_body_exited(body):
 	if body is Player and can_chat:

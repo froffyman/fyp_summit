@@ -58,6 +58,7 @@ platform_floor_layers = 4294967294
 player_detect = NodePath("../PlayerDetectComponent")
 dialogue_component = NodePath("../DialogueLayer/DialogueComponent")
 quest_dialogue = NodePath("../DialogueLayer/QuestDialogueComponent")
+npc_id = "elly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCComponent"]
 shape = SubResource("CircleShape2D_ldhom")

@@ -1,0 +1,253 @@
+[gd_scene load_steps=4 format=3 uid="uid://b88xcrbb633tk"]
+
+[ext_resource type="Texture2D" uid="uid://cvvs1pvjjvcr2" path="res://assets/sprites/ui/inventory_background.png" id="1_dumsp"]
+[ext_resource type="FontFile" uid="uid://bn0mym6vxgjoe" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_ce736"]
+[ext_resource type="Script" path="res://scripts/how_to_menu.gd" id="2_xsddc"]
+
+[node name="HowToMenu" type="NinePatchRect"]
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_dumsp")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+script = ExtResource("2_xsddc")
+
+[node name="ControlsList" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 691.2
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Control" type="NinePatchRect" parent="ControlsList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+texture = ExtResource("1_dumsp")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="BackLabel" type="Label" parent="ControlsList/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_ce736")
+text = "Movement: W, A, S, D / Arrow Keys"
+vertical_alignment = 1
+
+[node name="Control2" type="NinePatchRect" parent="ControlsList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+texture = ExtResource("1_dumsp")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="BackLabel" type="Label" parent="ControlsList/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_ce736")
+text = "Equip Item: Numbers 1-9"
+vertical_alignment = 1
+
+[node name="Control3" type="NinePatchRect" parent="ControlsList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+texture = ExtResource("1_dumsp")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="BackLabel" type="Label" parent="ControlsList/Control3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_ce736")
+text = "Use Item: Left Mouse Button"
+vertical_alignment = 1
+
+[node name="Control7" type="NinePatchRect" parent="ControlsList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+texture = ExtResource("1_dumsp")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="BackLabel" type="Label" parent="ControlsList/Control7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_ce736")
+text = "Toggle Backpack: E"
+vertical_alignment = 1
+
+[node name="Control4" type="NinePatchRect" parent="ControlsList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+texture = ExtResource("1_dumsp")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="BackLabel" type="Label" parent="ControlsList/Control4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_ce736")
+text = "Interact: Q"
+vertical_alignment = 1
+
+[node name="Control5" type="NinePatchRect" parent="ControlsList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+texture = ExtResource("1_dumsp")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="BackLabel" type="Label" parent="ControlsList/Control5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_ce736")
+text = "View Stats: Tab"
+vertical_alignment = 1
+
+[node name="Control6" type="NinePatchRect" parent="ControlsList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+texture = ExtResource("1_dumsp")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="BackLabel" type="Label" parent="ControlsList/Control6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_ce736")
+text = "Complete Quest: Left Click the quest icon"
+vertical_alignment = 1
+
+[node name="Back" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.01
+anchor_right = 0.15
+anchor_bottom = 1.075
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+mouse_filter = 1
+texture = ExtResource("1_dumsp")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="BackLabel" type="Label" parent="Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.556863, 0.129412, 0.129412, 1)
+theme_override_colors/font_shadow_color = Color(0.301961, 0.0745098, 0.0745098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_ce736")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="Back" to="." method="_on_back_gui_input"]

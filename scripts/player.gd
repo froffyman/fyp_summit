@@ -13,6 +13,8 @@ var speed_modifier = 1 #Changed to speed the player up/slow them down when neede
 @onready var quest_menu = %QuestMenu
 
 @onready var hotbar_ui = %InvUIComponent
+@onready var backpack_ui = %Backpack
+@onready var drag_texture = %DragTexture
 
 var inv: Inv
 var hotbar: Inv
@@ -59,6 +61,7 @@ func _ready():
 	hotbar = file_data["hotbar"]
 
 	hotbar_ui.set_inv(hotbar)
+	backpack_ui.set_inv(inv)
 
 	health.MAX_HEALTH = stats.max_health
 	health.current_health = stats.current_health
@@ -72,6 +75,9 @@ func _ready():
 	hotbar.update.emit()
 
 	health.dead.connect(kill_player)
+	
+	DragManager.start_drag.connect(drag_toggle.bind(true))
+	DragManager.stop_drag.connect(drag_toggle.bind(false))
 	
 	SignalManager.dragged.connect(drag_detect)
 	SignalManager.active_inventory.connect(update_active_inv)
@@ -99,6 +105,8 @@ func update_active_inv(new_inv):
 func return_to_menu():
 	save_stats()
 	held_item = null
+	NavManager.go_to_level(null, null)
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _process(delta):
 	
@@ -108,7 +116,16 @@ func _process(delta):
 		ui_layer.add_child(pause_menu)
 		pause_menu.quit_to_menu.connect(return_to_menu)
 		Engine.time_scale = 0
-		
+	
+	#Drop item on the ground
+	if Input.is_action_just_released("click") and item_dragged and not DragManager.can_drop:
+		DragManager.stop_drag.emit()
+		SignalManager.make_item_collectible.emit(DragManager.item_being_dragged)
+		DragManager.item_being_dragged = null
+		drag_texture.texture = null
+	
+	if Input.is_action_just_released("inventory"):
+		backpack_ui.visible = not backpack_ui.visible
 	
 	#Hotbar Tool Equip
 	for i in range(len(slot_inputs)):
@@ -117,6 +134,9 @@ func _process(delta):
 				hotbar_ui.show_equipped(i)
 				hotbar.hold_item(hotbar.slots[i])
 				held_item_index = i
+
+func drag_toggle(val: bool):
+	item_dragged = val
 
 func chat_update(mode):
 	blocking("chat", mode)
@@ -127,11 +147,13 @@ func blocking(access_password: String, mode: bool):
 		can_use_tool = false
 		hotbar_ui.equip_block_toggle(true)
 		speed_modifier = 0
+		DragManager.can_drag = false
 	elif not mode and access_mode == access_password:
 		access_mode = ""
 		can_use_tool = true
 		hotbar_ui.equip_block_toggle(false)
 		speed_modifier = 1
+		DragManager.can_drag = true
 
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -171,10 +193,7 @@ func _physics_process(delta):
 	if Input.is_action_just_released("tab"):
 		stat_menu.visible = not stat_menu.visible
 	
-	if Input.is_action_just_released("click") and item_dragged:
-		item_dragged = false
-		active_inv.dropped.emit()
-	elif Input.is_action_just_released("click") and not item_dragged and can_use_tool and held_item != null:
+	if Input.is_action_just_released("click") and not item_dragged and can_use_tool and held_item != null:
 		match held_item.item.use:
 			"eat":
 				eat()

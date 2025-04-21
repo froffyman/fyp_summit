@@ -19,7 +19,8 @@ var is_following: bool = false
 
 var inv_resource: Inv
 var inv_index: int
-var drag_texture: Sprite2D
+
+var drag_texture: TextureRect
 
 func update(slot: InvSlot):
 	if slot:
@@ -50,8 +51,11 @@ func clear_item():
 	item_display.texture = null
 	amount_text.visible = false
 	tooltip_text = ""
+	inv_resource.slots[inv_index] = InvSlot.new()
+	if equipped:
+		inv_resource.hold_item(InvSlot.new())
 
-func init(drag: Sprite2D, i: Inv, index: int):
+func init(drag: TextureRect, i: Inv, index: int):
 	drag_texture = drag
 	inv_resource = i
 	inv_index = index
@@ -120,25 +124,39 @@ func _on_mouse_exited():
 
 
 func _on_panel_mouse_entered():
+	print("true")
+	DragManager.can_drop = true
 	_active(true)
 	is_active.emit()
 
 
 
 func _on_panel_mouse_exited():
+	print("false")
+	DragManager.can_drop = false
 	_active(false)
 
 
 
 func _on_panel_gui_input(event):
-	if Input.is_action_pressed("click") and current_item != null:
-		print(inv_index)
+	if Input.is_action_just_released("drop_one") and current_item != null:
+		inv_resource.drop_one(inv_index)
+	if Input.is_action_just_released("click") and current_item != null and DragManager.item_being_dragged == null and DragManager.can_drag:
+		DragManager.start_drag.emit()
+		drag_texture.texture = current_item.item.texture
 		DragManager.item_being_dragged = inv_resource.slots[inv_index]
 		DragManager.dragged_inv_origin = inv_resource
 		DragManager.dragged_slot_index = inv_index
 		clear_item()
-	elif Input.is_action_just_released("click") and DragManager.item_being_dragged != null:
-		print(inv_index)
+	elif Input.is_action_just_released("click") and DragManager.item_being_dragged != null and DragManager.can_drop:
+		DragManager.stop_drag.emit()
 		var leftover = inv_resource.insert(DragManager.item_being_dragged.item, inv_index, DragManager.item_being_dragged.amount)
+		
+		if equipped:
+			inv_resource.hold_item(current_item)
+		
 		if leftover != null:
+			print("Leftovers")
 			DragManager.dragged_inv_origin.insert(leftover.item, DragManager.dragged_slot_index, leftover.amount)
+		DragManager.item_being_dragged = null
+		drag_texture.texture = null

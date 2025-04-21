@@ -10,3 +10,5 @@ class_name save_file
 @export var home: Resource
 
 @export var quests: Array[quest]
+
+@export var spoken_npcs: Array[String]

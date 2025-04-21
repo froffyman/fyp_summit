@@ -15,40 +15,66 @@ signal hold
 @export var slots: Array[InvSlot] #Slots where items are stored
 
 func insert(item: InvItem, slot = null, amount: int = 1):
+	#print("Inserting item..")
 	var leftover: InvSlot = null
+	
+	#If a specific slot is not given
 	if slot == null:
 		## First checks if any item slots already contain the desired item.
 		var item_slots = slots.filter(func(slot): return slot.item == item and slot.amount < slot.max)
 		if !item_slots.is_empty():
-			print("Space found in existing slot!")
+			#print("Space found in existing slot!")
 			item_slots[0].amount += amount
 		else:
 			## Otherwise, gets the first empty slot and inserts the item
 			var empty_slots = slots.filter(func(slot): return slot.item == null)
 			if !empty_slots.is_empty():
-				print("Empty slot found!")
+				#print("Empty slot found!")
 				empty_slots[0].item = item
 				empty_slots[0].amount = amount
 			else:
-				print("No space found.")
+				#print("No space found.")
 				var ground_slot: InvSlot = InvSlot.new()
 				ground_slot.item = item
 				ground_slot.amount = amount
 				SignalManager.make_item_collectible.emit(ground_slot)
+	#If a specific slot is given
 	else:
-		if slots[slot].item == item:
-			if slots[slot].item != null:
-				leftover = slots[slot]
+		if slots[slot].item == null:
 			slots[slot].item = item
 			slots[slot].amount = amount
 		else:
 			if slots[slot].item == item:
 				slots[slot].amount += amount
 				if slots[slot].amount > slots[slot].max:
+					print("Maximum reached!")
 					slots[slot].amount == slots[slot].max
 					leftover = InvSlot.new()
 					leftover.item = item
 					leftover.amount = slots[slot].amount - slots[slot].max
+			else:
+				print(slots[slot].item.name)
+				leftover = InvSlot.new()
+				leftover.item = slots[slot].item
+				leftover.amount = slots[slot].amount
+				slots[slot].item = item
+				slots[slot].amount = amount
+				
+		#if slots[slot].item == item:
+			#print("Not sure what's going on here!")
+			#if slots[slot].item != null:
+				#leftover = slots[slot]
+			#slots[slot].item = item
+			#slots[slot].amount = amount
+		#else:
+			#print("Or here!")
+			#if slots[slot].item == item:
+				#slots[slot].amount += amount
+				#if slots[slot].amount > slots[slot].max:
+					#slots[slot].amount == slots[slot].max
+					#leftover = InvSlot.new()
+					#leftover.item = item
+					#leftover.amount = slots[slot].amount - slots[slot].max
 				
 	update.emit()
 	return leftover
@@ -73,6 +99,13 @@ func consume(index: int):
 		slots[index] = InvSlot.new()
 		hold.emit(InvSlot.new())
 	update.emit()
+
+func drop_one(index: int):
+	var item_for_collectible: InvSlot = InvSlot.new()
+	item_for_collectible.item = slots[index].item
+	item_for_collectible.amount = 1
+	SignalManager.make_item_collectible.emit(item_for_collectible)
+	consume(index)
 
 func hotbar_insert(item: InvItem): 
 	#Instead of dropping an item on the ground, this function will return the item so the player

@@ -1,14 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://nx8on6y4nmpg"]
+[gd_scene load_steps=21 format=3 uid="uid://nx8on6y4nmpg"]
 
 [ext_resource type="Texture2D" uid="uid://cx564lit7pp3q" path="res://assets/sprites/player/Avril_Everything.png" id="1_gu4uv"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xksq5"]
-[ext_resource type="PackedScene" uid="uid://dmhvpjbi0u3ss" path="res://scenes/inventory_ui.tscn" id="4_70unw"]
 [ext_resource type="Resource" uid="uid://dpc6yjkdu4xh0" path="res://resources/stats.tres" id="4_xmb2r"]
-[ext_resource type="PackedScene" uid="uid://ba6bn82kbnf0s" path="res://scenes/drag_texture.tscn" id="8_fi8wq"]
 [ext_resource type="PackedScene" uid="uid://da5ssknkh5urp" path="res://scenes/inv_ui_component.tscn" id="8_nmffa"]
 [ext_resource type="PackedScene" uid="uid://b4s24qtes8r3j" path="res://scenes/quest_menu.tscn" id="8_pdrjk"]
 [ext_resource type="PackedScene" uid="uid://blbmvgivelnco" path="res://scenes/stat_menu.tscn" id="9_xghsm"]
 [ext_resource type="PackedScene" uid="uid://dn0konxajmqlx" path="res://scenes/health_bar.tscn" id="10_iupyj"]
+[ext_resource type="Script" path="res://scripts/DragTexture.gd" id="10_yasuf"]
 [ext_resource type="PackedScene" uid="uid://c1fdy7r8w2ber" path="res://scenes/health_component.tscn" id="11_6635w"]
 [ext_resource type="PackedScene" uid="uid://cxplc6vke3v0u" path="res://scenes/hurtbox_component.tscn" id="13_38m4e"]
 
@@ -144,13 +143,19 @@ shape = SubResource("CircleShape2D_klfmh")
 [node name="InventoryLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 
-[node name="InventoryUI" parent="InventoryLayer" instance=ExtResource("4_70unw")]
-z_index = 5
+[node name="Backpack" parent="InventoryLayer" node_paths=PackedStringArray("drag_texture") instance=ExtResource("8_nmffa")]
+unique_name_in_owner = true
+visible = false
 anchors_preset = -1
-anchor_top = 0.0
-anchor_bottom = 0.2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+anchor_left = 0.4
+anchor_top = 0.125
+anchor_right = 0.6
+anchor_bottom = 0.45
+offset_right = 0.0
+offset_bottom = 0.0
+columns = 4
+inv_size = 16
+drag_texture = NodePath("../DragTexture")
 
 [node name="InvUIComponent" parent="InventoryLayer" node_paths=PackedStringArray("drag_texture") instance=ExtResource("8_nmffa")]
 unique_name_in_owner = true
@@ -163,7 +168,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 columns = 9
 inv_size = 9
-drag_texture = NodePath("../../DragTexture")
+drag_texture = NodePath("../DragTexture")
 
 [node name="StatMenu" parent="InventoryLayer" node_paths=PackedStringArray("plr") instance=ExtResource("9_xghsm")]
 unique_name_in_owner = true
@@ -178,7 +183,14 @@ health = NodePath("../../HealthComponent")
 unique_name_in_owner = true
 plr = NodePath("../..")
 
-[node name="DragTexture" parent="." instance=ExtResource("8_fi8wq")]
+[node name="DragTexture" type="TextureRect" parent="InventoryLayer"]
+unique_name_in_owner = true
+z_index = 5
+offset_top = -12.0
+offset_right = 40.0
+offset_bottom = 28.0
+mouse_filter = 2
+script = ExtResource("10_yasuf")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("anim_handler") instance=ExtResource("11_6635w")]
 unique_name_in_owner = true
