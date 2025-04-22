@@ -1,31 +1,25 @@
+name: Export Godot Game
+
 on:
   push:
+    branches: [ main, master ]
 
 jobs:
   export_game:
-    # Always use ubuntu-latest for this action
     runs-on: ubuntu-latest
-    # Job name, can be anything
-    name: Export game to Github
+    name: Export game and create release
     steps:
-      # Always include the checkout step so that
-      # your project is available for Godot to export
-      - name: checkout
-        uses: actions/checkout@v2.3.1
-        # Ensure that you get the entire project history
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: create game release
-        # Use latest version (see releases for all versions)
-        uses: firebelley/godot-export@v2.3.0
+
+      - name: Export Godot project
+        uses: firebelley/godot-export@v3.0.0  # Using latest stable version
         with:
-          # Defining all the required inputs
-          # I used the mono version of Godot in this example
-          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.2.1-stable/Godot_v4.2.1-stable_mono_linux.x86_64.zip
-          godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.2.1-stable/Godot_v4.2.1-stable_mono_export_templates.tpz
-          # set this either to . or your game path, e.g. ./godot in case
-          # your game is within a sub-directory
+          # CORRECT MONO URLs for Godot 4.2.1
+          godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.2.1-stable/Godot_v4.2.1-stable_mono_linux_x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.2.1-stable/Godot_v4.2.1-stable_mono_export_templates.tpz
           relative_project_path: .
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_CREDENTIALS }}
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
