@@ -10,3 +10,4 @@ res://scenes/main_menu.tscn
 res://scenes/home.tscn
 res://scenes/save_file_container.tscn
 res://scripts/main_menu.gd
+res://resources/inventory.tres
