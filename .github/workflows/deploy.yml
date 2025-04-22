@@ -20,7 +20,7 @@ jobs:
 
       - name: Download Godot
         run: |
-          curl -L -o godot.zip https://godotengine.org/download/$GODOT_VERSION/Godot_v$GODOT_VERSION-stable_linux_headless.64.zip 
+          curl -L -o godot.zip https://godotengine.org/download/$GODOT_VERSION/Godot_v$GODOT_VERSION-stable_linux_headless.64
           unzip godot.zip
           mv Godot_v$GODOT_VERSION-stable_linux.x86_64 godot
           chmod +x godot 
