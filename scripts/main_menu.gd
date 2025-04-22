@@ -28,6 +28,7 @@ func _ready():
 func load_file(event, id: int):
 	if Input.is_action_just_pressed("click"):
 		SaveManager.file_id = id
+		NavManager.current_scene = "village"
 		var village = SaveManager.load_village()
 		if village != null:
 			get_tree().change_scene_to_packed(village)

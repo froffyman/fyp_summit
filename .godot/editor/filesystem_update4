@@ -1,12 +1,12 @@
-res://scenes/forest.tscn
-res://resources/hotbar.tres
-res://assets/dialogue/daniel.json
 res://scenes/game.tscn
+res://resources/hotbar.tres
 res://scenes/player.tscn
 res://scenes/inv_ui_component.tscn
 res://scenes/hotbar.tscn
 res://scenes/inventory_slot.tscn
-res://scripts/spawn_path.gd
+res://scenes/forest.tscn
 res://scenes/enemy_spawner.tscn
-res://scripts/enemy_spawner.gd
 res://scenes/main_menu.tscn
+res://scenes/home.tscn
+res://scenes/save_file_container.tscn
+res://scripts/main_menu.gd

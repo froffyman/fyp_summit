@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://gmp67wok1502"]
+[gd_scene load_steps=22 format=3 uid="uid://gmp67wok1502"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_5o0ee"]
 [ext_resource type="PackedScene" uid="uid://nx8on6y4nmpg" path="res://scenes/player.tscn" id="1_tjkda"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://crtuttcutvkik" path="res://assets/sprites/backgrounds/grass.png" id="2_kcpq3"]
 [ext_resource type="Texture2D" uid="uid://cx1bv2xujbd0b" path="res://assets/sprites/backgrounds/house_tileset.png" id="2_nyld8"]
 [ext_resource type="PackedScene" uid="uid://bt0sbogjkuwmx" path="res://scenes/tree.tscn" id="3_lut6c"]
-[ext_resource type="PackedScene" uid="uid://cfvtn70tyi8ou" path="res://scenes/apple_giver.tscn" id="4_bhne1"]
 [ext_resource type="PackedScene" uid="uid://dnkta8e1l1xr2" path="res://scenes/elly_flower.tscn" id="4_u5aty"]
 [ext_resource type="PackedScene" uid="uid://lehlb7pcpx28" path="res://scenes/stick_collectible.tscn" id="5_5sf4b"]
 [ext_resource type="PackedScene" uid="uid://ywv6mguwsoe1" path="res://scenes/collectible.tscn" id="7_lfysa"]
@@ -132,10 +131,6 @@ metadata/_aseprite_wizard_config_ = {
 "source": "C:/Users/gstar/Documents/Uni/Final Year Project/Sprites/RPG/grass.aseprite"
 }
 metadata/_aseprite_wizard_source_file_hash_ = "cb349bedaa55656c801053a9977edcc3"
-
-[node name="AppleGiver" parent="." instance=ExtResource("4_bhne1")]
-y_sort_enabled = true
-position = Vector2(526, 425)
 
 [node name="Player" parent="." instance=ExtResource("1_tjkda")]
 unique_name_in_owner = true

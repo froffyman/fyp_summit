@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7bqc4ojwwj1c"]
+[gd_scene load_steps=13 format=3 uid="uid://c7bqc4ojwwj1c"]
 
 [ext_resource type="Script" path="res://scripts/home.gd" id="1_gvcms"]
 [ext_resource type="PackedScene" uid="uid://nx8on6y4nmpg" path="res://scenes/player.tscn" id="1_y4lrx"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ywv6mguwsoe1" path="res://scenes/collectible.tscn" id="5_0p2oo"]
 [ext_resource type="Resource" uid="uid://l6ieak70cd32" path="res://resources/items/fishing_spear.tres" id="6_b6m1k"]
 [ext_resource type="Script" path="res://scripts/res_inventory_slot.gd" id="6_fxgil"]
+[ext_resource type="PackedScene" uid="uid://cfvtn70tyi8ou" path="res://scenes/apple_giver.tscn" id="8_thetc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_adc68"]
 texture = ExtResource("3_u2jc4")
@@ -95,5 +96,8 @@ position = Vector2(-198, -81)
 [node name="Collectible" parent="." instance=ExtResource("5_0p2oo")]
 position = Vector2(-65, -30)
 item = SubResource("Resource_7r15i")
+
+[node name="AppleGiver" parent="." instance=ExtResource("8_thetc")]
+position = Vector2(74, -39)
 
 [editable path="Gates/PFDInside"]
