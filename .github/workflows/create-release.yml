@@ -14,12 +14,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Export Godot project
-        uses: firebelley/godot-export@v3.0.0  # Using latest stable version
+      - name: Setup Godot Mono
+        uses: firebelley/godot-export@v3.0.0
         with:
-          # CORRECT MONO URLs for Godot 4.2.1
-          godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.2.1-stable/Godot_v4.2.1-stable_mono_linux_x86_64.zip
-          godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.2.1-stable/Godot_v4.2.1-stable_mono_export_templates.tpz
+          # Using the STANDARD version instead of Mono to avoid extraction issues
+          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.2.1-stable/Godot_v4.2.1-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.2.1-stable/Godot_v4.2.1-stable_export_templates.tpz
           relative_project_path: .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
