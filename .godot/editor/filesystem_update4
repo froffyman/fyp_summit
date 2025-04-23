@@ -1,5 +1,6 @@
 res://scenes/game.tscn
 res://resources/hotbar.tres
+res://scripts/death_menu.gd
 res://scenes/player.tscn
 res://scenes/inv_ui_component.tscn
 res://scenes/hotbar.tscn
@@ -9,5 +10,5 @@ res://scenes/enemy_spawner.tscn
 res://scenes/main_menu.tscn
 res://scenes/home.tscn
 res://scenes/save_file_container.tscn
-res://scripts/main_menu.gd
-res://resources/inventory.tres
+res://scripts/inv_ui_component.gd
+res://scripts/player.gd

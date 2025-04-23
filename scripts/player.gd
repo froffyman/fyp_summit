@@ -65,6 +65,8 @@ func _ready():
 
 	health.MAX_HEALTH = stats.max_health
 	health.current_health = stats.current_health
+	if health.current_health <= 0:
+		health.current_health = health.MAX_HEALTH
 	health.healed.emit()
 	
 	active_inv = inv
@@ -370,4 +372,4 @@ func kill_player():
 	blocking("death", true)
 	var death_menu = preload("res://scenes/death_menu.tscn").instantiate()
 	ui_layer.add_child(death_menu)
-	health.heal(health.MAX_HEALTH) #Preventing the player from spawning in at 0
+	#health.heal(health.MAX_HEALTH) #Preventing the player from spawning in at 0

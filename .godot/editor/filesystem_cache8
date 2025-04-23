@@ -1,6 +1,6 @@
-6dcd580d9bf2a9dbe66cc9f994d3620b
-::res://::1745345770
-export_presets.cfg::TextFile::-1::1745344152::0::1::::<><>::
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1745411184
+export_presets.cfg::TextFile::-1::1745345848::0::1::::<><>::
 icon.svg::CompressedTexture2D::8358592017747921325::1729068849::1729068856::1::::<><>::
 README.md::TextFile::-1::1745342332::0::1::::<><>::
 ::res://addons/::1740601488
@@ -169,11 +169,12 @@ player_death_anim.png::CompressedTexture2D::9088567008318636261::1743452637::174
 inventory_active_outline.png::CompressedTexture2D::3016307400425731938::1731502104::1731502104::1::::<><>::
 inventory_background.png::CompressedTexture2D::6291299173844380157::1730227238::1730227242::1::::<><>::
 inventory_icon.png::CompressedTexture2D::6235933648220369535::1730227725::1730227242::1::::<><>::
-::res://builds/::1745343922
-::res://builds/web/::1745345769
-summit-demo-web.apple-touch-icon.png::CompressedTexture2D::6914931240163287000::1745345769::1745345833::1::::<><>::
-summit-demo-web.icon.png::CompressedTexture2D::692892056403846215::1745345769::1745345833::1::::<><>::
-summit-demo-web.png::CompressedTexture2D::3078427808188664506::1745345769::1745345833::1::::<><>::
+::res://builds/::1745409957
+::res://builds/0.1.8_2/::1745409957
+::res://builds/0.1.8_2/web/::1745351698
+summit-demo-web.apple-touch-icon.png::CompressedTexture2D::6914931240163287000::1745345769::1745411185::1::::<><>::
+summit-demo-web.icon.png::CompressedTexture2D::692892056403846215::1745345769::1745411185::1::::<><>::
+summit-demo-web.png::CompressedTexture2D::3078427808188664506::1745345848::1745411185::1::::<><>::
 ::res://resources/::1745344178
 hotbar.tres::Resource/Inv::7663801745993963106::1745338611::0::1::::<><>::res://scripts/inventory.gd<>res://scripts/res_inventory_slot.gd
 inventory.tres::Resource/Inv::2854389892287673867::1745344178::0::1::::<><>::res://scripts/inventory.gd<>res://scripts/res_inventory_slot.gd<>uid://b7nno6lek0qto::::res://resources/items/apple.tres
@@ -194,7 +195,7 @@ pinktail_fish.tres::Resource/Resource::4172652726497963878::1739643320::0::1::::
 daniel1.tres::Resource/Resource::3506731672380507888::1744998453::0::1::::<><>::res://scripts/quest.gd<>uid://bihttv7400fmg::::res://assets/sprites/npcs/quest_icons/daniel.png
 elly1.tres::Resource/Resource::2919563416994415494::1744998453::0::1::::<><>::uid://8t82juhk1tj6::::res://assets/sprites/npcs/quest_icons/elly_flower.png<>res://scripts/quest.gd
 ::res://saves/::1743615047
-::res://scenes/::1745345689
+::res://scenes/::1745351780
 anim_component.tscn::PackedScene::6644186902157722438::1741375147::0::1::::<><>::res://scripts/anim_component.gd
 anim_fishing_rod.tscn::PackedScene::6426499558528219101::1740609269::0::1::::<><>::res://scripts/anim_fishing_rod.gd<>uid://djjpx08hgasyk::::res://assets/sprites/items/fishing_rod/anim_fishing_rod/fishing-rod.png
 anim_fishing_spear.tscn::PackedScene::3369387732413226591::1740609269::0::1::::<><>::res://scripts/anim_fishing_spear.gd<>uid://b5nbtanmxkmcp::::res://assets/sprites/items/fishing_spear/anim_fishing_spear/fishing_spear.png
@@ -222,7 +223,7 @@ hurtbox_component.tscn::PackedScene::6418823557005656922::1743452640::0::1::::<>
 inventory_slot.tscn::PackedScene::7227249785372845231::1745339233::0::1::::<><>::uid://cu3y6fat6ye4f::::res://assets/sprites/ui/inventory_icon.png<>res://scripts/inventory_slot.gd<>uid://dnk0wvdr4o8lk::::res://assets/fonts/PixelOperator8.ttf<>uid://bi8ee3m57k8ck::::res://assets/sprites/ui/inventory_active_outline.png
 inventory_ui.tscn::PackedScene::8017281137423445974::1745246410::0::1::::<><>::res://scripts/inventoryui.gd<>uid://cvvs1pvjjvcr2::::res://assets/sprites/ui/inventory_background.png<>uid://bgwxncqfx5hdj::::res://resources/inventory.tres
 inv_ui_component.tscn::PackedScene::7222318979642051201::1745339232::0::1::::<><>::res://scripts/inv_ui_component.gd<>uid://cvvs1pvjjvcr2::::res://assets/sprites/ui/inventory_background.png
-main_menu.tscn::PackedScene::5720497442664730928::1745345689::0::1::::<><>::res://scripts/main_menu.gd<>uid://b4vcis06uhwyj::::res://assets/sprites/backgrounds/Background_Art.png<>uid://bn0mym6vxgjoe::::res://assets/fonts/PixelOperator8-Bold.ttf<>uid://cvvs1pvjjvcr2::::res://assets/sprites/ui/inventory_background.png
+main_menu.tscn::PackedScene::5720497442664730928::1745351780::0::1::::<><>::res://scripts/main_menu.gd<>uid://b4vcis06uhwyj::::res://assets/sprites/backgrounds/Background_Art.png<>uid://bn0mym6vxgjoe::::res://assets/fonts/PixelOperator8-Bold.ttf<>uid://cvvs1pvjjvcr2::::res://assets/sprites/ui/inventory_background.png
 new_hotbar.tscn::PackedScene::9054920784594571318::1745246416::0::1::::<><>::
 npc.tscn::PackedScene::5480019575622830237::1741907467::0::1::::<><>::res://scripts/npc.gd<>uid://nteiunny45f8::::res://assets/sprites/npcs/elly_flower/Elly_Flower.png<>uid://dnk0wvdr4o8lk::::res://assets/fonts/PixelOperator8.ttf
 npc_component.tscn::PackedScene::6515836099964671612::1741907247::0::1::::<><>::res://scripts/npc_component.gd<>uid://dnk0wvdr4o8lk::::res://assets/fonts/PixelOperator8.ttf
