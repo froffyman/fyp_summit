@@ -3,4 +3,4 @@ Summit is an RPG-style game demo that I made as part of my Dissertation for my C
 
 Summit features a rudimentary fishing and combat system, as well as 2 example quests.
 
-Important note: The huge JavaScript content just comes from exported builds of the game meant for the web.
+Important note: The huge JavaScript content just comes from exported builds of the game meant for the web. The language used to create Summit was GDScript.
